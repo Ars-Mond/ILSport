@@ -15,6 +15,8 @@ public class GapWrapPanel : Canvas
         new FrameworkPropertyMetadata(
             default(double),
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnGapChanged));
+    
+    //public static readonly DependencyProperty A
 
     private static void OnGapChanged(DependencyObject @object, DependencyPropertyChangedEventArgs e)
     {
@@ -38,6 +40,7 @@ public class GapWrapPanel : Canvas
     private void SetGap()
     {
         FrameworkElement[] elements = (from UIElement child in Children select (child as FrameworkElement)!).ToArray();
+        if (elements.Length <= 0) return;
 
         double h = 0;
 
@@ -52,7 +55,6 @@ public class GapWrapPanel : Canvas
                 SetTop(element, h);
                 SetLeft(element, w);
                 w += element.ActualWidth + Gap;
-                
             }
             
             h += GetMaxHeight(e) + Gap;

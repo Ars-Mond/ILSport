@@ -40,11 +40,17 @@
             </c:GapStackPanel>
         </Grid>
         
-        <c:GapStackPanel Grid.Column="1" Gap="10">
-            <uc:TaskBar/>
-            <uc:TaskBar/>
-            <uc:TaskBar/>
+        <c:GapStackPanel Grid.Column="1" Gap="60">
+            <TextBlock TextAlignment="Center"
+                       Style="{StaticResource BaseStyle.Headline1}"
+                       Foreground="{StaticResource ColorBrush.Gray5}">
+                Записи активности
+            </TextBlock>
+            <c:GapStackPanel Orientation="Vertical" Gap="40">
+                <uc:TaskBar TypeColorBar="Red" Text="Расход калорий" Value="50"/>
+                <uc:TaskBar TypeColorBar="Yellow" Text="Физическая активность" Value="30"/>
+                <uc:TaskBar TypeColorBar="Blue" Text="Часы активности" Value="75"/>
+            </c:GapStackPanel>
         </c:GapStackPanel>
-        
     </Grid>
 </Page>

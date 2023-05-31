@@ -14,7 +14,7 @@
     </Page.Resources>
     
     <Grid>
-        <c:GapWrapPanel Gap="10" HorizontalAlignment="Stretch">
+        <c:GapWrapPanel Gap="10" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <uc:TrainingBrick Text="Руки"/>
             <uc:TrainingBrick Text="Пресс"/>
             <uc:TrainingBrick Text="Ноги"/>

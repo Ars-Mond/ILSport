@@ -31,10 +31,11 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <uc:DataBrick Grid.Column="0" Grid.Row="0" Title="Title"/>
-            <uc:DataBrick Grid.Column="2" Grid.Row="0" Title="Title"/>
-            <uc:DataBrick Grid.Column="0" Grid.Row="2" Title="Title"/>
-            <uc:DataBrick Grid.Column="2" Grid.Row="2" Title="Title"/>
+            
+            <uc:DataBrick Grid.Column="0" Grid.Row="0" Title="Записи занятий" Value="10,8" Unit="км"/>
+            <uc:DataBrick Grid.Column="2" Grid.Row="0" Title="Записи занятий" Value="5,4" Unit="ч"/>
+            <uc:DataBrick Grid.Column="0" Grid.Row="2" Title="Сон" Value="6,5" Unit="ч"/>
+            <uc:DataBrick Grid.Column="2" Grid.Row="2" Title="Вес" Value="44,5" Unit="кг"/>
         </Grid>
         
         <c:GapStackPanel Grid.Column="2" Orientation="Vertical" Gap="10">
@@ -43,9 +44,9 @@
                        Foreground="{StaticResource ColorBrush.Gray5}">
                 История занятий
             </TextBlock>
-            <uc:ListDataBrick Type="Хуй" Value="30см"/>
-            <uc:ListDataBrick/>
-            <uc:ListDataBrick/>
+            <uc:ListDataBrick Type="Отжимания" Value="345"/>
+            <uc:ListDataBrick Type="Приседания" Value="1265"/>
+            <uc:ListDataBrick Type="Берпи" Value="532"/>
         </c:GapStackPanel>
     </Grid>
 </Page>

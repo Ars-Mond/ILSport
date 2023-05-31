@@ -9,7 +9,10 @@ public class GapStackPanel : StackPanel
 {
     public static readonly DependencyProperty GapProperty = DependencyProperty.Register(nameof(Gap), 
         typeof(double),
-        typeof(GapStackPanel));
+        typeof(GapStackPanel),
+        new FrameworkPropertyMetadata(
+            default(double),
+            FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnGapChanged));
     public double Gap
     {
         get => (double)GetValue(GapProperty);

@@ -47,7 +47,7 @@
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
             
-                <Frame Grid.Column="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+                <Frame Grid.Column="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Stretch"/>
             </Grid>
         </ScrollViewer>
         

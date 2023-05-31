@@ -18,21 +18,21 @@
     <SolidColorBrush x:Key="ColorBrush.Gray5" Color="#616161"/>
     <SolidColorBrush x:Key="ColorBrush.Gray6" Color="#343434"/>
     
-    <LinearGradientBrush x:Key="ColorBrush.Red">
+    <LinearGradientBrush x:Key="ColorBrush.Red" StartPoint="0, 1" EndPoint="0, 0">
         <GradientStop Color="#D30D0D" Offset="0"/>
         <GradientStop Color="#DA490B" Offset="1"/>
     </LinearGradientBrush>
     
     <SolidColorBrush x:Key="ColorBrush.Red2" Color="#FFDAB7"/>
 
-    <LinearGradientBrush x:Key="ColorBrush.Yellow">
+    <LinearGradientBrush x:Key="ColorBrush.Yellow" StartPoint="0, 1" EndPoint="0, 0">
         <GradientStop Color="#E0D932" Offset="0"/>
         <GradientStop Color="#FAF234" Offset="1"/>
     </LinearGradientBrush>
     
     <SolidColorBrush x:Key="ColorBrush.Yellow2" Color="#FDFFB7"/>
 
-    <LinearGradientBrush x:Key="ColorBrush.Blue">
+    <LinearGradientBrush x:Key="ColorBrush.Blue" StartPoint="0, 1" EndPoint="0, 0">
         <GradientStop Color="#0B55C6" Offset="0"/>
         <GradientStop Color="#426AF6" Offset="1"/>
     </LinearGradientBrush>
@@ -40,4 +40,5 @@
     <SolidColorBrush x:Key="ColorBrush.Blue2" Color="#CEE8FE"/>
     
     <FontFamily x:Key="Font.Roboto">../../Resources/Fonts/#Roboto</FontFamily>
+    
 </ResourceDictionary>

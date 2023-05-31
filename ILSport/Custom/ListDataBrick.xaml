@@ -15,7 +15,7 @@
         <Border Style="{StaticResource ListDataBrick.Border}">
             <Grid Margin="20 10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="140"/>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
