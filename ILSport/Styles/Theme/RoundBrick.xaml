@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="clr-namespace:ILSport.CustomElements">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="BaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="c:CustomEllipse" x:Key="RoundBrick.Ellipse">
+        <Setter Property="StrokeThickness" Value="30"/>
+        <Setter Property="Center" Value="160, 120"/>
+        <Setter Property="Radius" Value="105"/>
+    </Style>
+    
+    <Style TargetType="c:CustomEllipse" x:Key="RoundBrick.Ellipse.Front" BasedOn="{StaticResource RoundBrick.Ellipse}">
+        <Setter Property="Stroke" Value="{StaticResource ColorBrush.Primary}"/>
+    </Style>
+    
+    <Style TargetType="c:CustomEllipse" x:Key="RoundBrick.Ellipse.Back" BasedOn="{StaticResource RoundBrick.Ellipse}">
+        <Setter Property="Stroke" Value="{StaticResource ColorBrush.Primary2}"/>
+    </Style>
+    
+    <Style TargetType="Border" x:Key="RoundBrick.Border" BasedOn="{StaticResource BaseStyle.Border}">
+        <Setter Property="Background" Value="{StaticResource ColorBrush.Primary2}"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="RoundBrick.Text" BasedOn="{StaticResource BaseStyle.Headline3}">
+    </Style>
+    
+    
+</ResourceDictionary>

@@ -1,0 +1,74 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="Border" x:Key="BaseStyle.Border">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Background" Value="{StaticResource ColorBrush.Gray}"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="BaseStyle.Headline1">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.Black}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="FontSize" Value="48"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontStretch" Value="Condensed"/>
+    </Style>
+    
+    <Style TargetType="{x:Type FrameworkElement}" x:Key="BaseStyle.Headline2">
+        <Setter Property="Control.Foreground" Value="{StaticResource ColorBrush.Black}"/>
+        <Setter Property="Control.FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="Control.FontSize" Value="32"/>
+        <Setter Property="Control.FontWeight" Value="SemiBold"/>
+        <Setter Property="Control.FontStretch" Value="Condensed"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="BaseStyle.Headline3">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.Black}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    
+    <Style TargetType="{x:Type FrameworkElement}" x:Key="BaseStyle.Footnote">
+        <Setter Property="Control.Foreground" Value="{StaticResource ColorBrush.Gray5}"/>
+        <Setter Property="Control.FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="Control.FontSize" Value="20"/>
+        <Setter Property="Control.FontWeight" Value="Bold"/>
+        <Setter Property="Control.FontStretch" Value="Condensed"/>
+    </Style>
+    
+    <Style TargetType="{x:Type FrameworkElement}" x:Key="BaseStyle.Footnote2">
+        <Setter Property="Control.Foreground" Value="{StaticResource ColorBrush.Gray5}"/>
+        <Setter Property="Control.FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="Control.FontSize" Value="20"/>
+        <Setter Property="Control.FontStyle" Value="Italic"/>
+        <Setter Property="Control.FontWeight" Value="Regular"/>
+        <Setter Property="Control.FontStretch" Value="Condensed"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="BaseStyle.Footnote3">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.White}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+    </Style>
+    
+    <Style TargetType="{x:Type FrameworkElement}" x:Key="BaseStyle.Footnote4">
+        <Setter Property="Control.Foreground" Value="{StaticResource ColorBrush.Gray4}"/>
+        <Setter Property="Control.FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="Control.FontSize" Value="15"/>
+        <Setter Property="Control.FontWeight" Value="Regular"/>
+    </Style>
+    
+    <Style TargetType="{x:Type FrameworkElement}" x:Key="BaseStyle.Footnote5">
+        <Setter Property="Control.Foreground" Value="{StaticResource ColorBrush.White}"/>
+        <Setter Property="Control.FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="Control.FontSize" Value="20"/>
+        <Setter Property="Control.FontWeight" Value="Light"/>
+    </Style>
+    
+</ResourceDictionary>

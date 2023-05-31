@@ -1,0 +1,30 @@
+<Page x:Class="ILSport.Pages.ProgressPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:c="clr-namespace:ILSport.CustomElements"
+      xmlns:uc="clr-namespace:ILSport.Custom"
+      xmlns:local="clr-namespace:ILSport.Pages"
+      mc:Ignorable="d"
+      Title="ProgressPage" d:DesignWidth="1620" d:DesignHeight="760">
+    
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
+    </Page.Resources>
+    
+    <Grid>
+        <c:GapWrapPanel Gap="80" HorizontalAlignment="Stretch">
+            <uc:RoundBrick Value="10" MaxValue="20"/>
+            <uc:RoundBrick Value="16" MaxValue="54"/>
+            <uc:RoundBrick Value="200" MaxValue="100"/>
+            <uc:RoundBrick Value="23" MaxValue="53"/>
+            <uc:RoundBrick Value="12" MaxValue="22"/>
+            <uc:RoundBrick Value="20" MaxValue="21"/>
+            <uc:RoundBrick Value="1" MaxValue="3"/>
+            <uc:RoundBrick Value="4" MaxValue="5"/>
+            <uc:RoundBrick Value="1" MaxValue="2"/>
+            <uc:RoundBrick Value="4" MaxValue="9"/>
+        </c:GapWrapPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,49 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="BaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="Image" x:Key="ProfilePage.Main.Image">
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Height" Value="400"/>
+        <Setter Property="Margin" Value="0, 0, 0, 30"/>
+        
+        <Setter Property="Clip">
+            <Setter.Value>
+                <RectangleGeometry Rect="0, 0, 400, 400" RadiusX="20" RadiusY="20"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="Button" x:Key="ProfilePage.Main.Button" BasedOn="{StaticResource BaseStyle.Footnote}">
+        <Setter Property="Background" Value="{StaticResource ColorBrush.Primary}"/>
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.White}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderThickness="0"
+                            CornerRadius="20">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20 10"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource ColorBrush.Primary}"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{StaticResource ColorBrush.Primary}"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{StaticResource ColorBrush.Gray}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

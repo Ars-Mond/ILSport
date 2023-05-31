@@ -1,0 +1,27 @@
+<Page x:Class="ILSport.Pages.TrainingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ILSport.Pages"
+      xmlns:c="clr-namespace:ILSport.CustomElements"
+      xmlns:uc="clr-namespace:ILSport.Custom"
+      mc:Ignorable="d"
+      Title="TrainingPage" d:DesignWidth="1620" d:DesignHeight="760">
+    
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
+    </Page.Resources>
+    
+    <Grid>
+        <c:GapWrapPanel Gap="10" HorizontalAlignment="Stretch">
+            <uc:TrainingBrick Text="Руки"/>
+            <uc:TrainingBrick Text="Пресс"/>
+            <uc:TrainingBrick Text="Ноги"/>
+            <uc:TrainingBrick Text="Хуй"/>
+            <uc:TrainingBrick Text="Хуй"/>
+            <uc:TrainingBrick Text="Хуй"/>
+            <uc:TrainingBrick Text="Хуй"/>
+        </c:GapWrapPanel>
+    </Grid>
+</Page>

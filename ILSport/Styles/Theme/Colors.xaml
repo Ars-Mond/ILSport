@@ -1,0 +1,43 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <LinearGradientBrush x:Key="ColorBrush.Primary">
+        <GradientStop Color="#FD7A0E" Offset="0"/>
+        <GradientStop Color="#FF950E" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <SolidColorBrush x:Key="ColorBrush.White" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ColorBrush.Black" Color="#000000"/>
+    
+    <SolidColorBrush x:Key="ColorBrush.Primary2" Color="#FECE9E"/>
+    <SolidColorBrush x:Key="ColorBrush.Primary3" Color="#FFA93D"/>
+    <SolidColorBrush x:Key="ColorBrush.Primary4" Color="#FF950E"/>
+    
+    <SolidColorBrush x:Key="ColorBrush.Gray" Color="#F2F2F2"/>
+    <SolidColorBrush x:Key="ColorBrush.Gray4" Color="#827979"/>
+    <SolidColorBrush x:Key="ColorBrush.Gray5" Color="#616161"/>
+    <SolidColorBrush x:Key="ColorBrush.Gray6" Color="#343434"/>
+    
+    <LinearGradientBrush x:Key="ColorBrush.Red">
+        <GradientStop Color="#D30D0D" Offset="0"/>
+        <GradientStop Color="#DA490B" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <SolidColorBrush x:Key="ColorBrush.Red2" Color="#FFDAB7"/>
+
+    <LinearGradientBrush x:Key="ColorBrush.Yellow">
+        <GradientStop Color="#E0D932" Offset="0"/>
+        <GradientStop Color="#FAF234" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <SolidColorBrush x:Key="ColorBrush.Yellow2" Color="#FDFFB7"/>
+
+    <LinearGradientBrush x:Key="ColorBrush.Blue">
+        <GradientStop Color="#0B55C6" Offset="0"/>
+        <GradientStop Color="#426AF6" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <SolidColorBrush x:Key="ColorBrush.Blue2" Color="#CEE8FE"/>
+    
+    <FontFamily x:Key="Font.Roboto">../../Resources/Fonts/#Roboto</FontFamily>
+</ResourceDictionary>

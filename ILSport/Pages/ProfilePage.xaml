@@ -1,0 +1,50 @@
+<Page x:Class="ILSport.Pages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:c="clr-namespace:ILSport.CustomElements"
+      xmlns:uc="clr-namespace:ILSport.Custom"
+      xmlns:local="clr-namespace:ILSport.Pages"
+      mc:Ignorable="d"
+      Title="ProfilePage" d:DesignWidth="1620" d:DesignHeight="760">
+    
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Image Style="{StaticResource ProfilePage.Main.Image}" Source="../Resources/Icons/Logo.png"/>
+                <Button Style="{StaticResource ProfilePage.Main.Button}" HorizontalAlignment="Right" Width="200">Изменить</Button>
+            </StackPanel>
+            
+            <c:GapStackPanel Grid.Column="2" Orientation="Vertical" Gap="10">
+                <uc:InputBox Title="Фамилия:" Value="Кузнецов"/>
+                <uc:InputBox Title="Имя:" Value="Евгений"/>
+                <uc:InputBox Title="Дата рождения:" Value="30.01.2003"/>
+                <uc:InputBox Title="Вес:" Value="81кг"/>
+                <uc:InputBox Title="Сон:" Value="9ч 45мин"/>
+            </c:GapStackPanel>
+        </Grid>
+        
+        <c:GapStackPanel Grid.Column="1" Gap="10">
+            <uc:TaskBar/>
+            <uc:TaskBar/>
+            <uc:TaskBar/>
+        </c:GapStackPanel>
+        
+    </Grid>
+</Page>

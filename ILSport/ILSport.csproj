@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+      <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Styles\Theme\Colors.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Windows\MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\Icons\Exit.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Icons\Logo.png" />
+      <None Remove="Resources\Fonts\Roboto-Black.ttf" />
+      <None Remove="Resources\Fonts\Roboto-BlackItalic.ttf" />
+      <None Remove="Resources\Fonts\Roboto-Bold.ttf" />
+      <None Remove="Resources\Fonts\Roboto-BoldItalic.ttf" />
+      <None Remove="Resources\Fonts\Roboto-Italic.ttf" />
+      <None Remove="Resources\Fonts\Roboto-Light.ttf" />
+      <None Remove="Resources\Fonts\Roboto-LightItalic.ttf" />
+      <None Remove="Resources\Fonts\Roboto-Medium.ttf" />
+      <None Remove="Resources\Fonts\Roboto-MediumItalic.ttf" />
+      <None Remove="Resources\Fonts\Roboto-Regular.ttf" />
+      <None Remove="Resources\Fonts\Roboto-Thin.ttf" />
+      <None Remove="Resources\Fonts\Roboto-ThinItalic.ttf" />
+      <Resource Include="Resources\Icons\Exit.png" />
+      <Resource Include="Resources\Icons\Logo.png" />
+      <None Remove="Resources\Fonts\RobotoCondensed-Bold.ttf" />
+      <None Remove="Resources\Fonts\RobotoCondensed-BoldItalic.ttf" />
+      <None Remove="Resources\Fonts\RobotoCondensed-Italic.ttf" />
+      <None Remove="Resources\Fonts\RobotoCondensed-Light.ttf" />
+      <None Remove="Resources\Fonts\RobotoCondensed-LightItalic.ttf" />
+      <None Remove="Resources\Fonts\RobotoCondensed-Regular.ttf" />
+      <None Remove="Resources\Icons\LogoContent.jpg" />
+      <None Remove="Resources\Icons\LogoContent.png" />
+      <Resource Include="Resources\Icons\LogoContent.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Resources\Fonts\Roboto-Black.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-BlackItalic.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-Bold.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-BoldItalic.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-Italic.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-Light.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-LightItalic.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-Medium.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-MediumItalic.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-Regular.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-Thin.ttf" />
+      <Resource Include="Resources\Fonts\Roboto-ThinItalic.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Resources\Fonts\RobotoCondensed-Bold.ttf" />
+      <Resource Include="Resources\Fonts\RobotoCondensed-BoldItalic.ttf" />
+      <Resource Include="Resources\Fonts\RobotoCondensed-Italic.ttf" />
+      <Resource Include="Resources\Fonts\RobotoCondensed-Light.ttf" />
+      <Resource Include="Resources\Fonts\RobotoCondensed-LightItalic.ttf" />
+      <Resource Include="Resources\Fonts\RobotoCondensed-Regular.ttf" />
+    </ItemGroup>
+
+</Project>

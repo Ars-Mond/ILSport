@@ -1,0 +1,49 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="Border" x:Key="DataBrick.Border">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Background" Value="{StaticResource ColorBrush.Gray}"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="DataBrick.Title">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.Gray5}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontStretch" Value="Condensed"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="DataBrick.Value">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.Black}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="FontSize" Value="48"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontStretch" Value="Condensed"/>
+        <Setter Property="LineHeight" Value="48"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="DataBrick.Unit">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.Gray5}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontStretch" Value="Condensed"/>
+        <Setter Property="LineHeight" Value="58"/>
+        <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="DataBrick.Date">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.Gray5}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Font.Roboto}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+        <Setter Property="FontStretch" Value="Condensed"/>
+    </Style>
+</ResourceDictionary>

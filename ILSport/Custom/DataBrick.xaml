@@ -1,0 +1,34 @@
+<UserControl x:Class="ILSport.Custom.DataBrick"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ILSport.Custom"
+             mc:Ignorable="d"
+             d:DesignHeight="270" d:DesignWidth="270"
+             Height="270" Width="270">
+    
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Border Style="{StaticResource DataBrick.Border}">
+            <Grid Margin="30, 30, 30, 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Text="{Binding Title}" Style="{StaticResource DataBrick.Title}"/>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock Text="{Binding Value}" Style="{StaticResource DataBrick.Value}"/>
+                    <TextBlock Text="{Binding Unit}" Style="{StaticResource DataBrick.Unit}" Margin="5, 0, 0, 0"/>
+                </StackPanel>
+                <TextBlock Grid.Row="2" Text="{Binding Date}" Style="{StaticResource DataBrick.Date}"/>
+            </Grid>
+
+        </Border>
+    </Grid>
+</UserControl>

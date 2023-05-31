@@ -1,0 +1,19 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Theme/Colors.xaml"/>
+        <ResourceDictionary Source="Theme/BaseStyle.xaml"/>
+        
+        <ResourceDictionary Source="Theme/MainTitle.xaml"/>
+        <ResourceDictionary Source="Theme/MenuItem.xaml"/>
+        <ResourceDictionary Source="Theme/DataBrick.xaml"/>
+        <ResourceDictionary Source="Theme/ListDataBrick.xaml"/>
+        <ResourceDictionary Source="Theme/TrainingBrick.xaml"/>
+        <ResourceDictionary Source="Theme/RoundBrick.xaml"/>
+        <ResourceDictionary Source="Theme/InputBox.xaml"/>
+        <ResourceDictionary Source="Theme/TaskBar.xaml"/>
+        
+        
+        <ResourceDictionary Source="Theme/ProfilePage.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
