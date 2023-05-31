@@ -182,7 +182,7 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # OS generated files #
-Icon?
+#Icon?
 
 # Mac desktop service store files
 .DS_Store
