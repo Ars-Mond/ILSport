@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Linq;
+using System.Windows.Media;
 
 namespace ILSport.CustomElements;
 
@@ -29,12 +30,16 @@ public class GapWrapPanel : Canvas
         set => SetValue(GapProperty, value);
     }
 
+    private double _oldGap = 0;
+
     public GapWrapPanel()
     {
-        LayoutUpdated += (sender, args) =>
+        /*LayoutUpdated += (sender, args) =>
         {
+            //if (Math.Abs(Gap - _oldGap) <= 0.01) return;
+            _oldGap = Gap;
             SetGap();
-        };
+        };*/
     }
 
     private void SetGap()
@@ -85,5 +90,11 @@ public class GapWrapPanel : Canvas
         }
 
         return elements;
+    }
+
+    protected override void OnRender(DrawingContext dc)
+    {
+        base.OnRender(dc);
+        SetGap();
     }
 }

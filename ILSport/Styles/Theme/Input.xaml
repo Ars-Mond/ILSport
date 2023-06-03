@@ -1,0 +1,80 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="BaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="TextBlock" x:Key="Input.Title" BasedOn="{StaticResource BaseStyle.Footnote4}">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.White}"/>
+    </Style>
+    
+    <Style TargetType="TextBox" x:Key="Input.Text" BasedOn="{StaticResource BaseStyle.Footnote4}">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.White}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="CaretBrush" Value="{StaticResource ColorBrush.White}"/> 
+        <Setter Property="BorderBrush" Value="{StaticResource ColorBrush.White}"/> 
+        <Setter Property="BorderThickness" Value="0, 0, 0, 3"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            CornerRadius="0"
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="true">
+                        <ScrollViewer Margin="0, 4,  0, 6" x:Name="PART_ContentHost"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{StaticResource ColorBrush.Primary2}"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="{StaticResource ColorBrush.Primary}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{StaticResource ColorBrush.Gray4}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="PasswordBox" x:Key="Input.Password" BasedOn="{StaticResource BaseStyle.Footnote4}">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.White}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="CaretBrush" Value="{StaticResource ColorBrush.White}"/> 
+        <Setter Property="BorderBrush" Value="{StaticResource ColorBrush.White}"/> 
+        <Setter Property="BorderThickness" Value="0, 0, 0, 3"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Control">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            CornerRadius="0"
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="true">
+                        <ScrollViewer Margin="0, 4,  0, 6" x:Name="PART_ContentHost"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{StaticResource ColorBrush.Primary2}"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="{StaticResource ColorBrush.Primary}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{StaticResource ColorBrush.Gray4}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

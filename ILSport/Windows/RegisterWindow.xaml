@@ -3,10 +3,77 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:c="clr-namespace:ILSport.CustomElements"
+        xmlns:uc="clr-namespace:ILSport.Custom"
         xmlns:local="clr-namespace:ILSport.Windows"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
-    <Grid>
+        Title="RegisterWindow"
+        Width="600" Height="635"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent">
+
+    <Window.Resources>
+        <ResourceDictionary Source="../Styles/DefaultPattern.xaml" />
+    </Window.Resources>
+
+    <Border Style="{StaticResource LoginRegister.Window}">
+        <Border Style="{StaticResource LoginRegister.Window}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
         
-    </Grid>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+            
+                    <Image Grid.Column="0"
+                           VerticalAlignment="Stretch"
+                           HorizontalAlignment="Left"
+                           Width="120"
+                           Margin="20"
+                           Source="../Resources/Icons/LogoContent.png"/>
+                    <uc:ExitButton Grid.Column="1" VerticalAlignment="Top"/>
+                </Grid>
+        
+                <c:GapStackPanel Grid.Row="1" Orientation="Vertical" Gap="20" Margin="40 0">
+                    <TextBlock Style="{StaticResource LoginRegister.Title}">
+                        Регистрация
+                    </TextBlock>
+                    <c:GapStackPanel Gap="40">
+                        <uc:Input x:Name="LoginInput" Title="Логин"/>
+                        <uc:Input x:Name="PasswordInput" Title="Пароль"/>
+                    </c:GapStackPanel>
+                </c:GapStackPanel>
+        
+                <c:GapStackPanel Grid.Row="2" Gap="20" VerticalAlignment="Bottom" Margin="0, 0, 0, 40">
+                    <Button Style="{StaticResource LoginRegister.Submit}">
+                        Готово
+                        
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="Click">
+                                <b:InvokeCommandAction Command="{Binding SubmitCommand}"/>
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Button>
+                    <Button Style="{StaticResource LoginRegister.Back}">
+                        Назад
+                        
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="Click">
+                                <b:InvokeCommandAction Command="{Binding LoginCommand}"/>
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Button>
+                </c:GapStackPanel>
+            </Grid>
+        </Border>
+    </Border>
 </Window>

@@ -5,9 +5,9 @@ namespace ILSport.Framework;
 
 public class DelegateCommand : ICommand
 {
-    private readonly Action<object> _open;
+    private readonly Action<object?> _open;
 
-    public DelegateCommand(Action<object> open)
+    public DelegateCommand(Action<object?> open)
     {
         _open = open;
     }
@@ -19,7 +19,7 @@ public class DelegateCommand : ICommand
 
     public void Execute(object? parameter)
     {
-        if (parameter == null) throw new ArgumentNullException(nameof(parameter));
+        //if (parameter == null) throw new ArgumentNullException(nameof(parameter));
         _open.Invoke(parameter);
     }
 

@@ -3,50 +3,87 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:c="clr-namespace:ILSport.CustomElements"
         xmlns:uc="clr-namespace:ILSport.Custom"
         xmlns:local="clr-namespace:ILSport.Windows"
         mc:Ignorable="d"
-        Title="LoginWindow" Width="600" Height="635"
+        Title="LoginWindow"
+        Width="600" Height="635"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        Background="Transparent">
     
     <Window.Resources>
         <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
     </Window.Resources>
     
-    <Window.Clip>
-        <RectangleGeometry Rect="0,0,600,635" RadiusX="25" RadiusY="25"/>
-    </Window.Clip>
-    
-    <Window.Style>
-        <Style TargetType="Window">
-            <Setter Property="Background" Value="{StaticResource ColorBrush.Gray6}"/>
-        </Style>
-    </Window.Style>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+    <Border Style="{StaticResource LoginRegister.Window}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
         
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
             
-            <Image Grid.Column="0"
-                   VerticalAlignment="Stretch"
-                   HorizontalAlignment="Left"
-                   Width="120"
-                   Margin="20"
-                   Source="../Resources/Icons/LogoContent.png"/>
-            <uc:ExitButton Grid.Column="1" VerticalAlignment="Top"/>
+                <Image Grid.Column="0"
+                       VerticalAlignment="Stretch"
+                       HorizontalAlignment="Left"
+                       Width="120"
+                       Margin="20"
+                       Source="../Resources/Icons/LogoContent.png"/>
+                <uc:ExitButton Grid.Column="1" VerticalAlignment="Top"/>
+            </Grid>
+        
+            <c:GapStackPanel Grid.Row="1" Orientation="Vertical" Gap="20" Margin="40 0">
+                <TextBlock Style="{StaticResource LoginRegister.Title}">
+                    Авторизация
+                </TextBlock>
+                <c:GapStackPanel Gap="40">
+                    <uc:Input x:Name="LoginInput"
+                              Title="Логин"
+                              IsPassword="False"/>
+                    <uc:Input x:Name="PasswordInput"
+                              Title="Пароль"
+                              IsPassword="True"/>
+                </c:GapStackPanel>
+            </c:GapStackPanel>
+            
+            <TextBlock Grid.Row="2" 
+                       Style="{StaticResource LoginRegister.Error}"
+                       Visibility="Hidden"
+                       x:Name="ErrorBox">
+                Ошибка
+            </TextBlock>
+        
+            <c:GapStackPanel Grid.Row="3" Gap="20" VerticalAlignment="Bottom"  Margin="0, 0, 0, 40">
+                <Button Style="{StaticResource LoginRegister.Submit}">
+                    Готово
+                    
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:InvokeCommandAction Command="{Binding SubmitCommand}"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Button>
+                <Button Style="{StaticResource LoginRegister.Link}">
+                    Зарегистрироваться
+                    
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:InvokeCommandAction Command="{Binding RegisterCommand}"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Button>
+            </c:GapStackPanel>
         </Grid>
-        
-        
-    </Grid>
+    </Border>
 </Window>

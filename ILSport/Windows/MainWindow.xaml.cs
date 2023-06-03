@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using ILSport.Framework;
+using ILSport.Framework.Core;
+using ILSport.Framework.Core.Schemas;
 using ILSport.Pages;
 
 namespace ILSport
@@ -12,7 +15,7 @@ namespace ILSport
         private readonly ProgressPage _progressPage;
         private readonly ProfilePage _profilePage;
 
-        public MainWindow()
+        public MainWindow(/*User user*/)
         {
             InitializeComponent();
 
@@ -21,7 +24,7 @@ namespace ILSport
             _progressPage = new ProgressPage();
             _profilePage = new ProfilePage();
             
-            // ExitButton.CloseAppCommand = new ActionCommand(Did);
+            ExitButton.CloseAppCommand = new DelegateCommand(Back);
             
             MenuItemHome.Command = new DelegateCommand(SwitchPage);
             MenuItemTraining.Command = new DelegateCommand(SwitchPage);
@@ -32,7 +35,12 @@ namespace ILSport
             MenuItemHome.IsActive = true;
         }
 
-        private void SwitchPage(object parameter)
+        private void Back(object? obj)
+        {
+            Debug.WriteLine(WindowsProvider.Instance.BackStateFromHistory(true));
+        }
+
+        private void SwitchPage(object? parameter)
         {
             var type = parameter as string;
 

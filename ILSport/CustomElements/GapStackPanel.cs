@@ -2,6 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System;
 using System.Linq;
+using System.Windows.Media;
 
 namespace ILSport.CustomElements;
 
@@ -19,16 +20,23 @@ public class GapStackPanel : StackPanel
         set => SetValue(GapProperty, value);
     }
     
+    private double _oldGap = 0;
+    
     public GapStackPanel()
     {
-        LayoutUpdated += (sender, args) => SetPadding();
+        /*LayoutUpdated += (sender, args) =>
+        {
+            if (Math.Abs(Gap - _oldGap) <= 0.01) return;
+            _oldGap = Gap;
+            SetGap();
+        };*/
     }
     private static void OnGapChanged(DependencyObject @object, DependencyPropertyChangedEventArgs e)
     {
-        ((GapStackPanel)@object).SetPadding();
+        ((GapStackPanel)@object).SetGap();
     }
 
-    private void SetPadding()
+    private void SetGap()
     {
         FrameworkElement[] elements = (from UIElement child in Children select (child as FrameworkElement)!).ToArray();
         
@@ -42,5 +50,11 @@ public class GapStackPanel : StackPanel
         var el = elements.Last();
 
         el.Margin = new Thickness(0, 0,0, 0);
+    }
+
+    protected override void OnRender(DrawingContext dc)
+    {
+        base.OnRender(dc);
+        SetGap();
     }
 }

@@ -18,10 +18,10 @@
             <uc:TrainingBrick Text="Руки"/>
             <uc:TrainingBrick Text="Пресс"/>
             <uc:TrainingBrick Text="Ноги"/>
-            <uc:TrainingBrick Text="Хуй"/>
-            <uc:TrainingBrick Text="Хуй"/>
-            <uc:TrainingBrick Text="Хуй"/>
-            <uc:TrainingBrick Text="Хуй"/>
+            <uc:TrainingBrick Text="1"/>
+            <uc:TrainingBrick Text="2"/>
+            <uc:TrainingBrick Text="3"/>
+            <uc:TrainingBrick Text="4"/>
         </c:GapWrapPanel>
     </Grid>
 </Page>

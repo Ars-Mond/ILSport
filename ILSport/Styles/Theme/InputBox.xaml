@@ -9,7 +9,7 @@
     <Style TargetType="TextBlock" x:Key="InputBox.Title" BasedOn="{StaticResource BaseStyle.Footnote4}">
     </Style>
     
-    <Style TargetType="{x:Type TextBox}" x:Key="InputBox.Input" BasedOn="{StaticResource BaseStyle.Headline2}">
+    <Style TargetType="{x:Type TextBox}" x:Key="InputBox.Text" BasedOn="{StaticResource BaseStyle.Headline2}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="Transparent"/>

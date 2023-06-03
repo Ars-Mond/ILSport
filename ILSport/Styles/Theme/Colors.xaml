@@ -14,7 +14,7 @@
     <SolidColorBrush x:Key="ColorBrush.Primary4" Color="#FF950E"/>
     
     <SolidColorBrush x:Key="ColorBrush.Gray" Color="#F2F2F2"/>
-    <SolidColorBrush x:Key="ColorBrush.Gray4" Color="#827979"/>
+    <SolidColorBrush x:Key="ColorBrush.Gray4" Color="#797979"/>
     <SolidColorBrush x:Key="ColorBrush.Gray5" Color="#616161"/>
     <SolidColorBrush x:Key="ColorBrush.Gray6" Color="#343434"/>
     

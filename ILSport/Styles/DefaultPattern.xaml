@@ -12,8 +12,10 @@
         <ResourceDictionary Source="Theme/RoundBrick.xaml"/>
         <ResourceDictionary Source="Theme/InputBox.xaml"/>
         <ResourceDictionary Source="Theme/TaskBar.xaml"/>
-        
+        <ResourceDictionary Source="Theme/Input.xaml"/>
+        <ResourceDictionary Source="Theme/LoginRegister.xaml"/>
         
         <ResourceDictionary Source="Theme/ProfilePage.xaml"/>
+        <!-- <ResourceDictionary Source="Theme/LoginWindow.xaml"/> -->
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

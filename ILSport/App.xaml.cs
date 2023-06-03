@@ -5,7 +5,10 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using ILSport.Framework.Core;
 using ILSport.Windows;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 
 namespace ILSport
 {
@@ -14,15 +17,22 @@ namespace ILSport
     /// </summary>
     public partial class App : Application
     {
+        private WindowsProvider WindowsProvider { get; }
+        private Collections Collections { get; }
+        
+        public App()
+        {
+            WindowsProvider = WindowsProvider.Instance;
+            Collections = Collections.Instance;
+
+            //Collections.Users.Load();
+        }
+        
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            var mainWindow = new MainWindow();
-            var loginPage = new LoginWindow();
-            
-            mainWindow.Show();
-            // loginPage.Show();
+            WindowsProvider.Switch(WindowType.Login);
         }
     }
 }

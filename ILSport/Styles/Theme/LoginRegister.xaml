@@ -1,0 +1,39 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="BaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="Border" x:Key="LoginRegister.Window" BasedOn="{StaticResource BaseStyle.Border}">
+        <Setter Property="Background" Value="{StaticResource ColorBrush.Gray6}"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="LoginRegister.Title" BasedOn="{StaticResource BaseStyle.Headline1}">
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.White}"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="LoginRegister.Error" BasedOn="{StaticResource BaseStyle.Footnote4}">
+        <Setter Property="Foreground" Value="#F95050"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="40"/>
+    </Style>
+    
+    <Style TargetType="Button" x:Key="LoginRegister.Submit" BasedOn="{StaticResource BaseStyle.Button}">
+    </Style>
+    
+    <Style TargetType="Button" x:Key="LoginRegister.Back" BasedOn="{StaticResource BaseStyle.Button}">
+        <Setter Property="Background" Value="#F95050"/>
+    </Style>
+    
+    <Style TargetType="Button" x:Key="LoginRegister.Link" BasedOn="{StaticResource BaseStyle.Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource ColorBrush.White}"/>
+    </Style>
+    
+</ResourceDictionary>
