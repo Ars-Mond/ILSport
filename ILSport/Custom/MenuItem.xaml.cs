@@ -37,7 +37,7 @@ public partial class MenuItem : UserControl, INotifyPropertyChanged
         Command = new DelegateCommand(Fot);
     }
 
-    private void Fot(object obj)
+    private void Fot(object? obj)
     {
     }
 }

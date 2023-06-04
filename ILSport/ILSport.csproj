@@ -5,6 +5,23 @@
         <TargetFramework>net7.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
+        <Configurations>Debug;Release;BuildProduct</Configurations>
+        <Platforms>AnyCPU</Platforms>
+        <Title>ILSport</Title>
+        <Authors>Ars_Mond</Authors>
+        <PackageIcon>Resources\Icons\Logo.png</PackageIcon>
+        <Company>AM~</Company>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <Optimize>false</Optimize>
+      <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'BuildProduct' ">
+      <OutputPath>bin\Build\</OutputPath>
+	  <Optimize>false</Optimize>
+      <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
 
     <ItemGroup>
@@ -45,7 +62,10 @@
       <None Remove="Resources\Fonts\Roboto-Thin.ttf" />
       <None Remove="Resources\Fonts\Roboto-ThinItalic.ttf" />
       <Resource Include="Resources\Icons\Exit.png" />
-      <Resource Include="Resources\Icons\Logo.png" />
+      <Resource Include="Resources\Icons\Logo.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </Resource>
       <None Remove="Resources\Fonts\RobotoCondensed-Bold.ttf" />
       <None Remove="Resources\Fonts\RobotoCondensed-BoldItalic.ttf" />
       <None Remove="Resources\Fonts\RobotoCondensed-Italic.ttf" />

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +24,15 @@ namespace ILSport
         
         public App()
         {
+            //Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+            var path = $@"{AppDomain.CurrentDomain.BaseDirectory}\ILSport.db";
+            Debug.WriteLine(path);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                Debug.WriteLine("Deleted BD!");
+            }
+
             WindowsProvider = WindowsProvider.Instance;
             Collections = Collections.Instance;
 

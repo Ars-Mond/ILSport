@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using ILSport.Framework;
@@ -26,13 +27,13 @@ public partial class LoginWindow : Window
         ErrorBox.Visibility = Visibility.Hidden;
         ErrorBox.Text = "Ошибка.";
         
-        var t = Collections.Instance.FindUser(LoginInput.Value);
+        var user = Collections.Instance.FindUser(LoginInput.Value);
         
-        if (t != null)
+        if (user != null)
         {
-            if (t.Entity.Password == PasswordInput.Value)
+            if (user.Entity.Password == PasswordInput.Value)
             {
-                if (t.Entity.Type == UserType.ADMIN)
+                if (user.Entity.Type == UserType.ADMIN)
                 {
                     var messageBoxResult = MessageBox.Show("У вас права администратора. Хотите открыть панель администратора?", 
                         "Панель Администратора",
@@ -40,7 +41,9 @@ public partial class LoginWindow : Window
                         MessageBoxImage.Question);
                     if (messageBoxResult == MessageBoxResult.Yes)
                     {
-                        
+                        WindowsProvider.Instance.AddStateToHistory(WindowType.Login);
+                        var t2 = WindowsProvider.Instance.Switch(WindowType.TestData);
+                        Debug.WriteLine(t2);
                         return;
                     }
                 }
@@ -49,7 +52,8 @@ public partial class LoginWindow : Window
                 PasswordInput.ClearInput();
 
                 WindowsProvider.Instance.AddStateToHistory(WindowType.Login);
-                WindowsProvider.Instance.Switch(WindowType.Main);   
+                var t = WindowsProvider.Instance.Switch(WindowType.Main, user.Entity);
+                Debug.WriteLine(t);
             }
             else
             {

@@ -15,7 +15,7 @@ namespace ILSport
         private readonly ProgressPage _progressPage;
         private readonly ProfilePage _profilePage;
 
-        public MainWindow(/*User user*/)
+        public MainWindow(User user)
         {
             InitializeComponent();
 
