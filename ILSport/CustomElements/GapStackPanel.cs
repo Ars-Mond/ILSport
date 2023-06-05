@@ -20,17 +20,7 @@ public class GapStackPanel : StackPanel
         set => SetValue(GapProperty, value);
     }
     
-    private double _oldGap = 0;
     
-    public GapStackPanel()
-    {
-        /*LayoutUpdated += (sender, args) =>
-        {
-            if (Math.Abs(Gap - _oldGap) <= 0.01) return;
-            _oldGap = Gap;
-            SetGap();
-        };*/
-    }
     private static void OnGapChanged(DependencyObject @object, DependencyPropertyChangedEventArgs e)
     {
         ((GapStackPanel)@object).SetGap();

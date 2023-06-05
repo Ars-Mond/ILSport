@@ -9,8 +9,9 @@
         <Platforms>AnyCPU</Platforms>
         <Title>ILSport</Title>
         <Authors>Ars_Mond</Authors>
-        <PackageIcon>Resources\Icons\Logo.png</PackageIcon>
+        <PackageIcon>Resources\Icons\icon_dark.png</PackageIcon>
         <Company>AM~</Company>
+        <ApplicationIcon>Resources\Icons\icon_dark.ico</ApplicationIcon>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -45,6 +46,10 @@
 
     <ItemGroup>
       <None Remove="Resources\Icons\Exit.png" />
+      <None Update="Resources\Icons\icon_dark.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
@@ -62,10 +67,7 @@
       <None Remove="Resources\Fonts\Roboto-Thin.ttf" />
       <None Remove="Resources\Fonts\Roboto-ThinItalic.ttf" />
       <Resource Include="Resources\Icons\Exit.png" />
-      <Resource Include="Resources\Icons\Logo.png">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </Resource>
+      <Resource Include="Resources\Icons\Logo.png" />
       <None Remove="Resources\Fonts\RobotoCondensed-Bold.ttf" />
       <None Remove="Resources\Fonts\RobotoCondensed-BoldItalic.ttf" />
       <None Remove="Resources\Fonts\RobotoCondensed-Italic.ttf" />

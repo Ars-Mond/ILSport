@@ -8,7 +8,7 @@ public partial class DatabaseViewWindow : Window
     public DatabaseViewWindow()
     {
         InitializeComponent();
-        var model =  new DatabaseViewModel();
+        var model = new DatabaseViewModel();
         DataContext = model;
         ExitButton.CloseAppCommand = model.ReturnCommand;
     }

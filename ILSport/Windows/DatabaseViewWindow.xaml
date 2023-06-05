@@ -48,7 +48,9 @@
                         Пользователи
                     </TabItem.Header>
                     <TabItem.Content>
-                        <DataGrid ItemsSource="{Binding Users}"/>
+                        <DataGrid ItemsSource="{Binding Users}"
+                                  SelectedItem="{Binding SelectedUser}"
+                                  x:Name="DataGrid"/>
                     </TabItem.Content>
                 </TabItem>
                 <TabItem>
@@ -70,8 +72,36 @@
             </TabControl>
 
             <c:GapStackPanel Grid.Row="2" Orientation="Horizontal" Gap="20" Margin="40 20">
-                <Button Style="{StaticResource BlackWindows.Button.Submit}">Coming Sons<!--Добавить Пользователя--></Button>
-                <Button Style="{StaticResource BlackWindows.Button.Submit}">Coming Soon<!--Добавить Тренировку--></Button>
+                <Button Style="{StaticResource BlackWindows.Button.Submit}">
+                    Добавить Пользователя
+                    
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:InvokeCommandAction Command="{Binding CreateUserCommand}"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Button>
+                <Button Style="{StaticResource BlackWindows.Button.Submit}">
+                    Обновить изменения Пользователей
+                    
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:InvokeCommandAction Command="{Binding UpdateUserCommand}"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Button>
+                <Button Style="{StaticResource BlackWindows.Button.Submit}">
+                    Удалить Пользователя
+                    
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:InvokeCommandAction Command="{Binding DeleteUserCommand}"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Button>
+                <Button Style="{StaticResource BlackWindows.Button.Submit}">
+                    Coming Soon<!--Добавить Тренировку-->
+                </Button>
             </c:GapStackPanel>
         </Grid>
     </Border>

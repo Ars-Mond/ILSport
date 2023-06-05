@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:ILSport.Windows"
         mc:Ignorable="d"
         Title="RegisterWindow"
-        Width="600"
+        Width="600" Height="800"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
@@ -26,7 +26,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="100"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
         
                 <Grid Grid.Row="0">

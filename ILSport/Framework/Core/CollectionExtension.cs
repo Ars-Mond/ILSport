@@ -13,43 +13,62 @@ public static class CollectionExtension
         collections.DatabaseContext.Users.Add(user);
         collections.DatabaseContext.SaveChanges();
     }
-    
-    public static List<UserSchema> GetUsers(this Collections collections)
-    {
-        return collections.DatabaseContext.Users.ToList();
+
+
+    #region List
+
+        public static List<UserSchema> GetUsers(this Collections collections)
+        {
+            return collections.DatabaseContext.Users.ToList();
+        }
+
+        public static List<TrainingSchema> GetTraining(this Collections collections)
+        {
+            return collections.DatabaseContext.Trainings.ToList();
+        }
+        
+        public static List<TrainingGroupSchema> GetTrainingGroup(this Collections collections)
+        {
+            return collections.DatabaseContext.TrainingGroups.ToList();
+        }
+        
+        public static List<UserTrainingSchema> GetUserTraining(this Collections collections)
+        {
+            return collections.DatabaseContext.UserTrainings.ToList();
     }
 
-    public static List<TrainingSchema> GetTraining(this Collections collections)
-    {
-        return collections.DatabaseContext.Trainings.ToList();
-    }
-    
-    public static List<TrainingGroupSchema> GetTrainingGroup(this Collections collections)
-    {
-        return collections.DatabaseContext.TrainingGroups.ToList();
-    }
-    
-    public static List<UserTrainingSchema> GetUserTraining(this Collections collections)
-    {
-        return collections.DatabaseContext.UserTrainings.ToList();
-    }
-    
-    
-    public static ObservableCollection<UserSchema> GetUsersObservableCollection(this Collections collections)
-    {
-        return collections.DatabaseContext.Users.Local.ToObservableCollection();
-    }
+    #endregion
 
-    public static ObservableCollection<TrainingSchema> GetTrainingObservableCollection(this Collections collections)
-    {
-        return collections.DatabaseContext.Trainings.Local.ToObservableCollection();
-    }
+
+    #region ObservableCollection
+
+        public static ObservableCollection<UserSchema> GetUsersObservableCollection(this Collections collections)
+        {
+            return collections.DatabaseContext.Users.Local.ToObservableCollection();
+        }
+
+        public static ObservableCollection<TrainingSchema> GetTrainingObservableCollection(this Collections collections)
+        {
+            return collections.DatabaseContext.Trainings.Local.ToObservableCollection();
+        }
+        
+        public static ObservableCollection<TrainingGroupSchema> GetTrainingGroupObservableCollection(this Collections collections)
+        {
+            return collections.DatabaseContext.TrainingGroups.Local.ToObservableCollection();
+        }
+        
+        public static ObservableCollection<UserTrainingSchema> GetUserTrainingObservableCollection(this Collections collections)
+        {
+            return collections.DatabaseContext.UserTrainings.Local.ToObservableCollection();
+        }
+
+    #endregion
+
+    #region MyRegion
+
+    #endregion
     
-    public static ObservableCollection<TrainingGroupSchema> GetTrainingGroupObservableCollection(this Collections collections)
-    {
-        return collections.DatabaseContext.TrainingGroups.Local.ToObservableCollection();
-    }
-    
+
     public static EntityEntry<UserSchema>? FindUser(this Collections collections, string login)
     {
         return collections.DatabaseContext.Users.Local.FindEntry(nameof(UserSchema.Login), login);

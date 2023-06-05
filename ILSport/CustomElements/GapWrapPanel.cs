@@ -17,7 +17,6 @@ public class GapWrapPanel : Canvas
             default(double),
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnGapChanged));
     
-    //public static readonly DependencyProperty A
 
     private static void OnGapChanged(DependencyObject @object, DependencyPropertyChangedEventArgs e)
     {
@@ -28,18 +27,6 @@ public class GapWrapPanel : Canvas
     {
         get => (double)GetValue(GapProperty);
         set => SetValue(GapProperty, value);
-    }
-
-    private double _oldGap = 0;
-
-    public GapWrapPanel()
-    {
-        /*LayoutUpdated += (sender, args) =>
-        {
-            //if (Math.Abs(Gap - _oldGap) <= 0.01) return;
-            _oldGap = Gap;
-            SetGap();
-        };*/
     }
 
     private void SetGap()
