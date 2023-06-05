@@ -95,6 +95,14 @@ public class GapWrapPanel : Canvas
     protected override void OnRender(DrawingContext dc)
     {
         base.OnRender(dc);
+        
+        SetGap();
+    }
+
+    protected override void OnVisualChildrenChanged(DependencyObject visualAdded, DependencyObject visualRemoved)
+    {
+        base.OnVisualChildrenChanged(visualAdded, visualRemoved);
+        
         SetGap();
     }
 }

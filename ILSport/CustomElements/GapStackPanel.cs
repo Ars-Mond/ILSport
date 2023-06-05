@@ -44,7 +44,7 @@ public class GapStackPanel : StackPanel
 
         foreach (var element in elements)
         {
-            element.Margin = new Thickness(0, 0, 0, 0 + Gap);
+            element.Margin = Orientation == Orientation.Vertical ? new Thickness(0, 0, 0, 0 + Gap) : new Thickness(0, 0, 0 + Gap, 0);
         }
 
         var el = elements.Last();

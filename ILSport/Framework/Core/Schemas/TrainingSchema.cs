@@ -3,26 +3,26 @@ using System.Collections.ObjectModel;
 
 namespace ILSport.Framework.Core.Schemas;
 
-public class Training
+public sealed class TrainingSchema
 {
     public int Id { get; set; }
     public string NameIndex { get; set; } = null!;
     public string? Name { get; set; }
 
     public int TrainingGroupId { get; set; }
-    public TrainingGroup TrainingGroup { get; set; } = null!;
-    public virtual ICollection<UserTraining> UserTrainings { get; set; } = new ObservableCollection<UserTraining>();
+    public TrainingGroupSchema TrainingGroup { get; set; } = null!;
+    public ICollection<UserTrainingSchema> UserTrainings { get; set; } = new ObservableCollection<UserTrainingSchema>();
 
-    public Training()
+    public TrainingSchema()
     { }
     
-    public Training(string nameIndex, string name)
+    public TrainingSchema(string nameIndex, string name)
     {
         NameIndex = nameIndex;
         Name = name;
     }
     
-    public Training(int id, string nameIndex, string name)
+    public TrainingSchema(int id, string nameIndex, string name)
     {
         Id = id;
         NameIndex = nameIndex;

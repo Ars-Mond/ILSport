@@ -17,7 +17,7 @@
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="Click">
                     <b:InvokeCommandAction Command="{Binding Command}"
-                                           CommandParameter="{Binding ParameterType}"/>
+                                           CommandParameter="{Binding This}"/>
                 </b:EventTrigger>
             </b:Interaction.Triggers>
         </Button>

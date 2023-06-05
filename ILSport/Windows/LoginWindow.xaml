@@ -19,7 +19,7 @@
         <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
     </Window.Resources>
     
-    <Border Style="{StaticResource LoginRegister.Window}">
+    <Border Style="{StaticResource BlackWindows.Window}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -44,7 +44,7 @@
             </Grid>
         
             <c:GapStackPanel Grid.Row="1" Orientation="Vertical" Gap="20" Margin="40 0">
-                <TextBlock Style="{StaticResource LoginRegister.Title}">
+                <TextBlock Style="{StaticResource BlackWindows.Title}">
                     Авторизация
                 </TextBlock>
                 <c:GapStackPanel Gap="40">
@@ -58,14 +58,14 @@
             </c:GapStackPanel>
             
             <TextBlock Grid.Row="2" 
-                       Style="{StaticResource LoginRegister.Error}"
+                       Style="{StaticResource BlackWindows.Message.Error}"
                        Visibility="Hidden"
                        x:Name="ErrorBox">
                 Ошибка
             </TextBlock>
         
             <c:GapStackPanel Grid.Row="3" Gap="20" VerticalAlignment="Bottom"  Margin="0, 0, 0, 40">
-                <Button Style="{StaticResource LoginRegister.Submit}">
+                <Button Style="{StaticResource BlackWindows.Button.Submit}">
                     Готово
                     
                     <b:Interaction.Triggers>
@@ -74,12 +74,12 @@
                         </b:EventTrigger>
                     </b:Interaction.Triggers>
                 </Button>
-                <Button Style="{StaticResource LoginRegister.Link}">
+                <Button Style="{StaticResource BlackWindows.Button.Link}">
                     Зарегистрироваться
                     
                     <b:Interaction.Triggers>
                         <b:EventTrigger EventName="Click">
-                            <b:InvokeCommandAction Command="{Binding RegisterCommand}"/>
+                            <b:InvokeCommandAction Command="{Binding TransitionCommand}"/>
                         </b:EventTrigger>
                     </b:Interaction.Triggers>
                 </Button>

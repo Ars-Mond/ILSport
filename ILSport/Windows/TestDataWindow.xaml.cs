@@ -9,10 +9,10 @@ namespace ILSport.Windows;
 
 public partial class TestDataWindow : Window
 {
-    public List<User> Users { get; set; }
-    public List<Training> Training { get; set; }
-    public List<TrainingGroup> TrainingGroup { get; set; }
-    public List<UserTraining> UserTrainings { get; set; }
+    public List<UserSchema> Users { get; set; }
+    public List<TrainingSchema> Training { get; set; }
+    public List<TrainingGroupSchema> TrainingGroup { get; set; }
+    public List<UserTrainingSchema> UserTrainings { get; set; }
 
     public TestDataWindow()
     {

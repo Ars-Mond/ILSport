@@ -8,12 +8,20 @@ using ILSport.Framework;
 
 namespace ILSport.Custom;
 
-public partial class MenuItem : UserControl, INotifyPropertyChanged
+public partial class MenuItem : UserControl
 {
-    private bool _isActive = false;
+    
+    /*public static readonly DependencyProperty MyClickProperty =
+        DependencyProperty.Register(nameof(Command), typeof(ICommand), typeof(MenuItem));
+
+    public ICommand Command
+    {
+        get => (ICommand)GetValue(MyClickProperty);
+        set => SetValue(MyClickProperty, value);
+    }*/
     
     public ICommand Command { get; set; }
-    public string ParameterType { get; set; }
+    public MenuItemType ParameterType { get; set; } = MenuItemType.None;
     public string Text { get; set; }
     public bool IsActive
     {
@@ -21,23 +29,25 @@ public partial class MenuItem : UserControl, INotifyPropertyChanged
         set
         {
             _isActive = value;
-            if (IsActive) MenuItemButton.Style = Resources["MenuItem.ButtonActive"] as Style; //MenuItemButton.Background = Resources["ColorBrush.Primary"] as LinearGradientBrush;
-            else MenuItemButton.Style = Resources["MenuItem.Button"] as Style; //MenuItemButton.Background = Resources["ColorBrush.Primary2"] as Brush;
+            
+            if (IsActive) MenuItemButton.Style = Resources["MenuItem.ButtonActive"] as Style; 
+            //MenuItemButton.Background = Resources["ColorBrush.Primary"] as LinearGradientBrush;
+            
+            else MenuItemButton.Style = Resources["MenuItem.Button"] as Style; 
+            //MenuItemButton.Background = Resources["ColorBrush.Primary2"] as Brush;
         }
     }
+    
+    private bool _isActive = false;
+    
+    public MenuItem This { get; }
 
     public MenuItem()
     {
+        This = this;
         InitializeComponent();
         DataContext = this;
         
         if (string.IsNullOrEmpty(Text)) Text = "Template";
-        if (string.IsNullOrEmpty(ParameterType)) ParameterType = "Template";
-
-        Command = new DelegateCommand(Fot);
-    }
-
-    private void Fot(object? obj)
-    {
     }
 }

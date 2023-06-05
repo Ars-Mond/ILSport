@@ -14,14 +14,32 @@
     </Page.Resources>
     
     <Grid>
-        <c:GapWrapPanel Gap="10" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-            <uc:TrainingBrick Text="Руки"/>
+        <c:GapWrapPanel Gap="10" HorizontalAlignment="Stretch" VerticalAlignment="Top" x:Name="MainBox">
+            <!--<uc:TrainingBrick Text="Руки"/>
             <uc:TrainingBrick Text="Пресс"/>
             <uc:TrainingBrick Text="Ноги"/>
             <uc:TrainingBrick Text="1"/>
             <uc:TrainingBrick Text="2"/>
-            <uc:TrainingBrick Text="3"/>
-            <uc:TrainingBrick Text="4"/>
+            <uc:TrainingBrick Text="3"/>-->
         </c:GapWrapPanel>
+        <!--<ItemsControl ItemsSource="{Binding TrainingGroup}">
+            <ItemsControl.Style>
+                <Style TargetType="c:GapWrapPanel">
+                    <Setter Property="Gap" Value="10"/>
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                </Style>
+            </ItemsControl.Style>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <c:GapWrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <uc:TrainingBrick Text="Float"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>-->
     </Grid>
 </Page>

@@ -4,10 +4,10 @@ namespace ILSport.Framework.Core.Schemas;
 
 public class DatabaseContext : DbContext
 {
-    public DbSet<User> Users { get; set; } = null!;
-    public DbSet<TrainingGroup> TrainingGroups { get; set; } = null!;
-    public DbSet<Training> Trainings { get; set; } = null!;
-    public DbSet<UserTraining> UserTrainings { get; set; } = null!;
+    public DbSet<UserSchema> Users { get; set; } = null!;
+    public DbSet<TrainingGroupSchema> TrainingGroups { get; set; } = null!;
+    public DbSet<TrainingSchema> Trainings { get; set; } = null!;
+    public DbSet<UserTrainingSchema> UserTrainings { get; set; } = null!;
 
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) {}
     public DatabaseContext() {}
@@ -19,7 +19,7 @@ public class DatabaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<User>(e =>
+        modelBuilder.Entity<UserSchema>(e =>
         {
             e.ToTable(nameof(Users), "test");
             e.HasKey(k => k.Id);
@@ -31,7 +31,7 @@ public class DatabaseContext : DbContext
                 .IsRequired();
         });
 
-        modelBuilder.Entity<TrainingGroup>(e =>
+        modelBuilder.Entity<TrainingGroupSchema>(e =>
         {
             e.ToTable(nameof(TrainingGroups), "test");
             e.HasKey(k => k.Id);
@@ -43,7 +43,7 @@ public class DatabaseContext : DbContext
                 .IsRequired();
         });
         
-        modelBuilder.Entity<Training>(e =>
+        modelBuilder.Entity<TrainingSchema>(e =>
         {
             e.ToTable(nameof(Trainings), "test");
             e.HasKey(k => k.Id);
@@ -60,7 +60,7 @@ public class DatabaseContext : DbContext
                 .IsRequired();
         });
 
-        modelBuilder.Entity<UserTraining>(e =>
+        modelBuilder.Entity<UserTrainingSchema>(e =>
         {
             e.ToTable(nameof(UserTrainings), "test");
             e.HasKey(k => k.Id);

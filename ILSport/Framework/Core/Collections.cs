@@ -30,7 +30,7 @@ public class Collections
         var user = _databaseContext.Users.ToList().Find((i) => i.Login == "root");
         if (user == null)
         {
-            var u = new User("root", "root", UserType.ADMIN);
+            var u = new UserSchema("root", "root", UserType.ADMIN);
             _databaseContext.Users.Add(u);
             _databaseContext.SaveChanges();
         }
@@ -63,26 +63,26 @@ public class Collections
         Debug.WriteLine(_databaseContext.Trainings.Count());
     }
 
-    public EntityEntry<User>? FindUser(string login)
+    private EntityEntry<UserSchema>? FindUser(string login)
     {
-        return _databaseContext.Users.Local.FindEntry(nameof(User.Login), login);
+        return _databaseContext.Users.Local.FindEntry(nameof(UserSchema.Login), login);
     }
 
-    public EntityEntry<Training>? FindTraining(string nameIndex)
+    private EntityEntry<TrainingSchema>? _FindTraining(string nameIndex)
     {
-        return _databaseContext.Trainings.Local.FindEntry(nameof(Training.NameIndex), nameIndex);
+        return _databaseContext.Trainings.Local.FindEntry(nameof(TrainingSchema.NameIndex), nameIndex);
     }
 
     // TODO метод расширения
     public bool CreateTraining(string trainingIndex, string trainingName, string trainingGroup)
     {
-        var tg = _databaseContext.TrainingGroups.Local.FindEntry(nameof(TrainingGroup.NameIndex), trainingGroup);
+        var tg = _databaseContext.TrainingGroups.Local.FindEntry(nameof(TrainingGroupSchema.NameIndex), trainingGroup);
         if (tg == null) return false;
 
-        var training = FindTraining(trainingIndex);
+        var training = _FindTraining(trainingIndex);
         if (training != null) return false;
         
-        var t = new Training(trainingIndex, trainingName) { TrainingGroup = tg.Entity };
+        var t = new TrainingSchema(trainingIndex, trainingName) { TrainingGroup = tg.Entity };
         _databaseContext.Trainings.Add(t);
         _databaseContext.SaveChanges();
         return true;
@@ -91,18 +91,18 @@ public class Collections
     public bool CreateTrainingGroup(string trainingGroupIndex, string trainingGroupName)
     {
 
-        var trainingGroup = _databaseContext.TrainingGroups.Local.FindEntry(nameof(TrainingGroup.NameIndex), trainingGroupIndex);
+        var trainingGroup = _databaseContext.TrainingGroups.Local.FindEntry(nameof(TrainingGroupSchema.NameIndex), trainingGroupIndex);
         if (trainingGroup != null) return false;
 
-        var tg = new TrainingGroup(trainingGroupIndex, trainingGroupName);
+        var tg = new TrainingGroupSchema(trainingGroupIndex, trainingGroupName);
         _databaseContext.TrainingGroups.Add(tg);
         _databaseContext.SaveChanges();
         return true;
     }
     
-    public bool TryFindUser(string login, out EntityEntry<User>? result)
+    public bool TryFindUser(string login, out EntityEntry<UserSchema>? result)
     {
-       var i = _databaseContext.Users.Local.FindEntry(nameof(User.Login), login);
+       var i = _databaseContext.Users.Local.FindEntry(nameof(UserSchema.Login), login);
        result = i;
        return i != null;
     }

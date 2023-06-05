@@ -19,8 +19,8 @@
         <ResourceDictionary Source="../Styles/DefaultPattern.xaml" />
     </Window.Resources>
 
-    <Border Style="{StaticResource LoginRegister.Window}">
-        <Border Style="{StaticResource LoginRegister.Window}">
+    <Border Style="{StaticResource BlackWindows.Window}">
+        <Border Style="{StaticResource BlackWindows.Window}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -44,7 +44,7 @@
                 </Grid>
         
                 <c:GapStackPanel Grid.Row="1" Orientation="Vertical" Gap="20" Margin="40 0">
-                    <TextBlock Style="{StaticResource LoginRegister.Title}">
+                    <TextBlock Style="{StaticResource BlackWindows.Title}">
                         Регистрация
                     </TextBlock>
                     <c:GapStackPanel Gap="40">
@@ -54,7 +54,7 @@
                 </c:GapStackPanel>
         
                 <c:GapStackPanel Grid.Row="2" Gap="20" VerticalAlignment="Bottom" Margin="0, 0, 0, 40">
-                    <Button Style="{StaticResource LoginRegister.Submit}">
+                    <Button Style="{StaticResource BlackWindows.Button.Submit}">
                         Готово
                         
                         <b:Interaction.Triggers>
@@ -63,7 +63,7 @@
                             </b:EventTrigger>
                         </b:Interaction.Triggers>
                     </Button>
-                    <Button Style="{StaticResource LoginRegister.Back}">
+                    <Button Style="{StaticResource BlackWindows.Button.Back}">
                         Назад
                         
                         <b:Interaction.Triggers>

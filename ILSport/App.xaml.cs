@@ -35,8 +35,6 @@ namespace ILSport
 
             WindowsProvider = WindowsProvider.Instance;
             Collections = Collections.Instance;
-
-            //Collections.Users.Load();
         }
         
         protected override void OnStartup(StartupEventArgs e)

@@ -1,0 +1,78 @@
+<Window x:Class="ILSport.Windows.DatabaseViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:c="clr-namespace:ILSport.CustomElements"
+        xmlns:uc="clr-namespace:ILSport.Custom"
+        xmlns:local="clr-namespace:ILSport.Windows"
+        mc:Ignorable="d"
+        Title="DatabaseViewWindow" Height="1080" Width="1920"
+        WindowStyle="None"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent">
+    
+    <Window.Resources>
+        <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
+    </Window.Resources>
+
+    <Border Style="{StaticResource BlackWindows.Window}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0"
+                       VerticalAlignment="Stretch"
+                       HorizontalAlignment="Left"
+                       Width="120"
+                       Margin="20"
+                       Source="../Resources/Icons/LogoContent.png"/>
+                <uc:ExitButton Grid.Column="1" VerticalAlignment="Top"  x:Name="ExitButton"/>
+            </Grid>
+
+            <TabControl Grid.Row="1" Margin="40, 0">
+                <TabItem>
+                    <TabItem.Header>
+                        Пользователи
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <DataGrid ItemsSource="{Binding Users}"/>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        Группы Упражнений
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <DataGrid ItemsSource="{Binding TrainingGroup}"/>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        Упражнения
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <DataGrid ItemsSource="{Binding Training}"/>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
+
+            <c:GapStackPanel Grid.Row="2" Orientation="Horizontal" Gap="20" Margin="40 20">
+                <Button Style="{StaticResource BlackWindows.Button.Submit}">Добавить Пользователя</Button>
+                <Button Style="{StaticResource BlackWindows.Button.Submit}">Добавить Тренировку</Button>
+            </c:GapStackPanel>
+        </Grid>
+    </Border>
+</Window>

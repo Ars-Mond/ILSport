@@ -16,24 +16,19 @@ public class WindowsProvider
     private Window? _openWindow;
 
     private Queue<WindowType> _windowsTypes = new Queue<WindowType>();
+    
+    public UserSchema? CurrentUser { get; set; }
 
     private WindowsProvider()
     { }
 
     public bool Switch(WindowType windowType)
     {
-        return Switch<byte>(windowType);
-    }
-
-    public bool Switch<T>(WindowType windowType, T? data = default)
-    {
         Window? window;
         switch (windowType)
         {
             case WindowType.Main:
-                if (data is not User user) return false;
-
-                window = new MainWindow(user);
+                window = new MainWindow();
                 
                 _openWindow?.Close();
                 _openWindow = window;
@@ -56,6 +51,14 @@ public class WindowsProvider
                 _openWindow.Show();
                 break;
             
+            case WindowType.DatabaseView:
+                window = new DatabaseViewWindow();
+                
+                _openWindow?.Close();
+                _openWindow = window;
+                _openWindow.Show();
+                break;
+            
             case WindowType.TestData:
                 window = new TestDataWindow();
                 
@@ -63,7 +66,7 @@ public class WindowsProvider
                 _openWindow = window;
                 _openWindow.Show();
                 break;
-                
+            
             default:
                 throw new ArgumentOutOfRangeException(nameof(windowType), windowType, null);
         }
@@ -84,6 +87,17 @@ public class WindowsProvider
 
         return false;
     }
+
+    public void ExitApplication(bool messagebox = false)
+    {
+        if (!messagebox)
+        {
+            Application.Current.Shutdown();
+            return;
+        }
+        if (MessageBox.Show("Вы уверенны что хотите выйти?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            Application.Current.Shutdown();
+    }
 }
 
 public enum WindowType
@@ -91,6 +105,7 @@ public enum WindowType
     Main,
     Login,
     Register,
+    DatabaseView,
     TestData
 }
 
