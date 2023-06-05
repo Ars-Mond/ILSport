@@ -39,7 +39,7 @@
                        Width="120"
                        Margin="20"
                        Source="../Resources/Icons/LogoContent.png"/>
-                <uc:ExitButton Grid.Column="1" VerticalAlignment="Top"  x:Name="ExitButton"/>
+                <uc:ExitButton Grid.Column="1" VerticalAlignment="Top" x:Name="ExitButton"/>
             </Grid>
 
             <TabControl Grid.Row="1" Margin="40, 0">
@@ -70,8 +70,8 @@
             </TabControl>
 
             <c:GapStackPanel Grid.Row="2" Orientation="Horizontal" Gap="20" Margin="40 20">
-                <Button Style="{StaticResource BlackWindows.Button.Submit}">Добавить Пользователя</Button>
-                <Button Style="{StaticResource BlackWindows.Button.Submit}">Добавить Тренировку</Button>
+                <Button Style="{StaticResource BlackWindows.Button.Submit}">Coming Sons<!--Добавить Пользователя--></Button>
+                <Button Style="{StaticResource BlackWindows.Button.Submit}">Coming Soon<!--Добавить Тренировку--></Button>
             </c:GapStackPanel>
         </Grid>
     </Border>

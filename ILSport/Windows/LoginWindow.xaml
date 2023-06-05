@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:ILSport.Windows"
         mc:Ignorable="d"
         Title="LoginWindow"
-        Width="600" Height="635"
+        Width="600"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
@@ -24,7 +24,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition/>
+                <RowDefinition Height="100"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
         

@@ -3,30 +3,15 @@ using System.Windows;
 using System.Windows.Input;
 using ILSport.Framework;
 using ILSport.Framework.Core;
+using ILSport.Framework.ViewModel;
 
 namespace ILSport.Windows;
 
 public partial class RegisterWindow : Window
 {
-    public ICommand LoginCommand { get; }
-    public ICommand SubmitCommand { get; }
     public RegisterWindow()
     {
         InitializeComponent();
-        DataContext = this;
-
-        LoginCommand = new DelegateCommand(OnLogin);
-        SubmitCommand = new DelegateCommand(OnSubmit);
-    }
-    
-    private void OnSubmit(object? obj)
-    {
-        Debug.WriteLine(LoginInput.Value);
-        Debug.WriteLine(PasswordInput.Value);
-    }
-
-    private void OnLogin(object? obj)
-    {
-        WindowsProvider.Instance.Switch(WindowType.Login);
+        DataContext = new RegisterModel(ErrorBox, LoginInput, PasswordInput, NameInput);
     }
 }

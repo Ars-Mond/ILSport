@@ -8,6 +8,12 @@ namespace ILSport.Framework.Core;
 
 public static class CollectionExtension
 {
+    public static void SetCreatedUser(this Collections collections, UserSchema user)
+    {
+        collections.DatabaseContext.Users.Add(user);
+        collections.DatabaseContext.SaveChanges();
+    }
+    
     public static List<UserSchema> GetUsers(this Collections collections)
     {
         return collections.DatabaseContext.Users.ToList();

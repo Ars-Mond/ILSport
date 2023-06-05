@@ -71,31 +71,7 @@ public class MainContentModel : BaseViewModel
     {
         _frame.Content = page;
     }
-    
-    /*private void SwitchPage(MenuItemType type)
-    {
-        switch (type)
-        {
-            
-            case MenuItemType.Home:
-                break;
-            
-            case MenuItemType.Training:
-                break;
-            
-            case MenuItemType.Progress:
-                break;
-            
-            case MenuItemType.Profile:
-                break;
-            
-            case MenuItemType.None:
-                throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            default:
-                throw new ArgumentOutOfRangeException(nameof(type), type, null);
-        }
-    }*/
-    
+
     private void Back(object? obj)
     {
         WindowsProvider.Instance.BackStateFromHistory(true);

@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:ILSport.Windows"
         mc:Ignorable="d"
         Title="RegisterWindow"
-        Width="600" Height="635"
+        Width="600"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
@@ -24,8 +24,9 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
         
                 <Grid Grid.Row="0">
@@ -48,15 +49,29 @@
                         Регистрация
                     </TextBlock>
                     <c:GapStackPanel Gap="40">
-                        <uc:Input x:Name="LoginInput" Title="Логин"/>
-                        <uc:Input x:Name="PasswordInput" Title="Пароль"/>
+                        <uc:Input x:Name="LoginInput"
+                                  Title="Логин"
+                                  IsPassword="False"/>
+                        <uc:Input x:Name="NameInput"
+                                  Title="ФИО"
+                                  IsPassword="False"/>
+                        <uc:Input x:Name="PasswordInput"
+                                  Title="Пароль"
+                                  IsPassword="True"/>
                     </c:GapStackPanel>
                 </c:GapStackPanel>
-        
-                <c:GapStackPanel Grid.Row="2" Gap="20" VerticalAlignment="Bottom" Margin="0, 0, 0, 40">
+                
+                <TextBlock Grid.Row="2" 
+                           Style="{StaticResource BlackWindows.Message.Error}"
+                           Visibility="Hidden"
+                           x:Name="ErrorBox">
+                    Ошибка
+                </TextBlock>
+                
+                <c:GapStackPanel Grid.Row="3" Gap="20" VerticalAlignment="Bottom"  Margin="0, 0, 0, 40">
                     <Button Style="{StaticResource BlackWindows.Button.Submit}">
                         Готово
-                        
+                    
                         <b:Interaction.Triggers>
                             <b:EventTrigger EventName="Click">
                                 <b:InvokeCommandAction Command="{Binding SubmitCommand}"/>
@@ -65,10 +80,10 @@
                     </Button>
                     <Button Style="{StaticResource BlackWindows.Button.Back}">
                         Назад
-                        
+                    
                         <b:Interaction.Triggers>
                             <b:EventTrigger EventName="Click">
-                                <b:InvokeCommandAction Command="{Binding LoginCommand}"/>
+                                <b:InvokeCommandAction Command="{Binding TransitionCommand}"/>
                             </b:EventTrigger>
                         </b:Interaction.Triggers>
                     </Button>
