@@ -19,12 +19,13 @@ public class TrainingPageController : IPageController
     private ICommand _brickCommand;
     private Page? _generatePage;
 
+    
+    public ObservableCollection<TrainingGroupSchema> TrainingGroup { get; private set; }
+    public ObservableCollection<TrainingSchema> Training { get; private set; }
+    
+    
     public MenuItemType MenuItemType { get; } = MenuItemType.Training;
-    
-    
     public event Action<Page>? OnSetPage;
-
-    
     public Page GetPage() // page
     {
         return _generatePage ?? _trainingPage;
@@ -32,8 +33,18 @@ public class TrainingPageController : IPageController
 
     public TrainingPageController(ObservableCollection<TrainingGroupSchema> trainingGroup, ObservableCollection<TrainingSchema> training)
     {
+        TrainingGroup = trainingGroup;
+        Training = training;
+        
+        _trainingPage = new TrainingPage() { DataContext = this };
+
+        foreach (var group in TrainingGroup)
+        {
+            _trainingPage.MainBox.Children.Add(new TrainingBrick(string.IsNullOrEmpty(group.Name) ? "LOL" : group.Name, group.NameIndex));
+        }
+        
+        
         _brickCommand = new DelegateCommand(o => OpenBrickPage((string)o!));
-        _trainingPage = new TrainingPage(trainingGroup, training);
 
         _trainingBricks = (from UIElement child in _trainingPage.MainBox.Children select (child as TrainingBrick)!).ToList();
         

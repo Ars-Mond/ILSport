@@ -28,12 +28,10 @@ public class MainContentModel : BaseViewModel
         var tg = Collections.Instance.GetTrainingGroupObservableCollection();
         var t = Collections.Instance.GetTrainingObservableCollection();
 
-        var tpc = new TrainingPageController(tg, t);
-        tpc.OnSetPage += OpenPage;
-        _pageControllers.Add(tpc);
-        _pageControllers.Add(new StartupPageController());
-        _pageControllers.Add(new ProgressPageController());
-        _pageControllers.Add(new ProfilePageController());
+        AddPageController(new StartupPageController());
+        AddPageController(new TrainingPageController(tg, t));
+        AddPageController(new ProgressPageController());
+        AddPageController(new ProfilePageController());
 
         BackCommand = new DelegateCommand(Back);
         PageCommand = new DelegateCommand(o => SwitchPage((MenuItem)o!));
@@ -53,6 +51,12 @@ public class MainContentModel : BaseViewModel
     {
         _menuItems.Add(item);
         item.Command = PageCommand;
+    }
+
+    private void AddPageController(IPageController pageController)
+    {
+        _pageControllers.Add(pageController);
+        pageController.OnSetPage += OpenPage;
     }
 
     private void SwitchPage(MenuItem obj)

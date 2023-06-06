@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:c="clr-namespace:ILSport.CustomElements"
       xmlns:uc="clr-namespace:ILSport.Custom"
       xmlns:local="clr-namespace:ILSport.Pages"
@@ -28,7 +29,15 @@
             
             <StackPanel Grid.Column="0" Orientation="Vertical">
                 <Image Style="{StaticResource ProfilePage.Main.Image}" Source="../Resources/Icons/Logo.png"/>
-                <Button Style="{StaticResource ProfilePage.Main.Button}" HorizontalAlignment="Right" Width="200">Изменить</Button>
+                <Button Style="{StaticResource ProfilePage.Main.Button}" HorizontalAlignment="Right" Width="200">
+                    Изменить
+                    
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:InvokeCommandAction Command="{Binding UpdateUserCommand}"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Button>
             </StackPanel>
             
             <c:GapStackPanel Grid.Column="2" Orientation="Vertical" Gap="10">

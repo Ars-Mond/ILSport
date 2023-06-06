@@ -49,8 +49,8 @@
                     </TabItem.Header>
                     <TabItem.Content>
                         <DataGrid ItemsSource="{Binding Users}"
-                                  SelectedItem="{Binding SelectedUser}"
-                                  x:Name="DataGrid"/>
+                                  SelectedItem="{Binding SelectedItem}"
+                                  x:Name="UserDataGrid"/>
                     </TabItem.Content>
                 </TabItem>
                 <TabItem>
@@ -58,7 +58,9 @@
                         Группы Упражнений
                     </TabItem.Header>
                     <TabItem.Content>
-                        <DataGrid ItemsSource="{Binding TrainingGroup}"/>
+                        <DataGrid ItemsSource="{Binding TrainingGroup}"
+                                  SelectedItem="{Binding SelectedItem}"
+                                  x:Name="TrainingGroupDataGrid"/>
                     </TabItem.Content>
                 </TabItem>
                 <TabItem>
@@ -66,13 +68,15 @@
                         Упражнения
                     </TabItem.Header>
                     <TabItem.Content>
-                        <DataGrid ItemsSource="{Binding Training}"/>
+                        <DataGrid ItemsSource="{Binding Training}"
+                                  SelectedItem="{Binding SelectedItem}"
+                                  x:Name="TrainingDataGrid"/>
                     </TabItem.Content>
                 </TabItem>
             </TabControl>
 
             <c:GapStackPanel Grid.Row="2" Orientation="Horizontal" Gap="20" Margin="40 20">
-                <Button Style="{StaticResource BlackWindows.Button.Submit}">
+                <Button Style="{StaticResource BlackWindows.Button.Back}">
                     Добавить Пользователя
                     
                     <b:Interaction.Triggers>
@@ -82,25 +86,33 @@
                     </b:Interaction.Triggers>
                 </Button>
                 <Button Style="{StaticResource BlackWindows.Button.Submit}">
-                    Обновить изменения Пользователей
+                    Внести изменения
                     
                     <b:Interaction.Triggers>
                         <b:EventTrigger EventName="Click">
-                            <b:InvokeCommandAction Command="{Binding UpdateUserCommand}"/>
+                            <b:InvokeCommandAction Command="{Binding UpdateCommand}"
+                                                   CommandParameter="{Binding SelectedItem}"/>
                         </b:EventTrigger>
                     </b:Interaction.Triggers>
                 </Button>
                 <Button Style="{StaticResource BlackWindows.Button.Submit}">
-                    Удалить Пользователя
+                    Удалить выделенный
                     
                     <b:Interaction.Triggers>
                         <b:EventTrigger EventName="Click">
-                            <b:InvokeCommandAction Command="{Binding DeleteUserCommand}"/>
+                            <b:InvokeCommandAction Command="{Binding DeleteCommand}"
+                                                   CommandParameter="{Binding SelectedItem}"/>
                         </b:EventTrigger>
                     </b:Interaction.Triggers>
                 </Button>
                 <Button Style="{StaticResource BlackWindows.Button.Submit}">
-                    Coming Soon<!--Добавить Тренировку-->
+                    Обновить таблицы
+                    
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:InvokeCommandAction Command="{Binding UpdatePageCommand}"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
                 </Button>
             </c:GapStackPanel>
         </Grid>

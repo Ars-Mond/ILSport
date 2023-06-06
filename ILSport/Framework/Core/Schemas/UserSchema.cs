@@ -10,6 +10,7 @@ public sealed class UserSchema
     public string Password { get; set; } = null!;
     public UserType Type { get; set; }
     
+    public string? Avatar { get; set; }
     public string? FirstName { get; set; }
     public string? FamilyName { get; set; }
     public string? MiddleName { get; set; }
