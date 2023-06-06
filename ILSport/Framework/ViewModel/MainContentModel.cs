@@ -31,7 +31,7 @@ public class MainContentModel : BaseViewModel
         AddPageController(new StartupPageController());
         AddPageController(new TrainingPageController(tg, t));
         AddPageController(new ProgressPageController());
-        AddPageController(new ProfilePageController());
+        AddPageController(new ProfilePageController(user));
 
         BackCommand = new DelegateCommand(Back);
         PageCommand = new DelegateCommand(o => SwitchPage((MenuItem)o!));

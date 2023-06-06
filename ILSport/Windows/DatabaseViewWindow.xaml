@@ -50,6 +50,7 @@
                     <TabItem.Content>
                         <DataGrid ItemsSource="{Binding Users}"
                                   SelectedItem="{Binding SelectedItem}"
+                                  ColumnWidth="130"
                                   x:Name="UserDataGrid"/>
                     </TabItem.Content>
                 </TabItem>
@@ -60,6 +61,7 @@
                     <TabItem.Content>
                         <DataGrid ItemsSource="{Binding TrainingGroup}"
                                   SelectedItem="{Binding SelectedItem}"
+                                  ColumnWidth="130"
                                   x:Name="TrainingGroupDataGrid"/>
                     </TabItem.Content>
                 </TabItem>
@@ -70,6 +72,7 @@
                     <TabItem.Content>
                         <DataGrid ItemsSource="{Binding Training}"
                                   SelectedItem="{Binding SelectedItem}"
+                                  ColumnWidth="130"
                                   x:Name="TrainingDataGrid"/>
                     </TabItem.Content>
                 </TabItem>

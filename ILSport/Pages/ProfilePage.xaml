@@ -17,6 +17,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
+            <ColumnDefinition Width="40"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
@@ -28,8 +29,11 @@
             </Grid.ColumnDefinitions>
             
             <StackPanel Grid.Column="0" Orientation="Vertical">
-                <Image Style="{StaticResource ProfilePage.Main.Image}" Source="../Resources/Icons/Logo.png"/>
-                <Button Style="{StaticResource ProfilePage.Main.Button}" HorizontalAlignment="Right" Width="200">
+                <Image Style="{StaticResource ProfilePage.Main.Image}" 
+                       Source="{Binding Avatar}"/>
+                <Button Style="{StaticResource ProfilePage.Main.Button}" 
+                        HorizontalAlignment="Right" 
+                        Width="200">
                     Изменить
                     
                     <b:Interaction.Triggers>
@@ -41,15 +45,49 @@
             </StackPanel>
             
             <c:GapStackPanel Grid.Column="2" Orientation="Vertical" Gap="10">
-                <uc:InputBox Title="Фамилия:" Value="Кузнецов"/>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Title}"
+                               Text="Фамилия:"/>
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Text}" 
+                               Text="{Binding UserFamilyName}"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Title}"
+                               Text="Имя:"/>
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Text}" 
+                               Text="{Binding UserFirstName}"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Title}"
+                               Text="Дата рождения:"/>
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Text}" 
+                               Text="{Binding UserBirthday}"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Title}"
+                               Text="Вес:"/>
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Text}" 
+                               Text="{Binding UserWeight}"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Title}"
+                               Text="Сон:"/>
+                    <TextBlock Style="{StaticResource ProfilePage.Main.Text}" 
+                               Text="{Binding UserSleep}"/>
+                </StackPanel>
+                <!--<uc:InputBox Title="Фамилия:" Value="Кузнецов"/>
                 <uc:InputBox Title="Имя:" Value="Евгений"/>
                 <uc:InputBox Title="Дата рождения:" Value="30.01.2003"/>
                 <uc:InputBox Title="Вес:" Value="81кг"/>
-                <uc:InputBox Title="Сон:" Value="9ч 45мин"/>
+                <uc:InputBox Title="Сон:" Value="9ч 45мин"/>-->
             </c:GapStackPanel>
         </Grid>
         
-        <c:GapStackPanel Grid.Column="1" Gap="60">
+        <c:GapStackPanel Grid.Column="2" Gap="60">
             <TextBlock TextAlignment="Center"
                        Style="{StaticResource BaseStyle.Headline1}"
                        Foreground="{StaticResource ColorBrush.Gray5}">

@@ -48,28 +48,13 @@ public partial class UserCreateWindow : Window
             SetStateError(true, "Error password.");
             return;
         }
-        /*if (!CheckString(FamilyName))
-        {
-            SetStateError(true, "Error family name.");
-            return;
-        }
-        if (!CheckString(FirstName))
-        {
-            SetStateError(true, "Error first name.");
-            return;
-        }
-        if (!CheckString(MiddleName))
-        {
-            SetStateError(true, "Error middle name.");
-            return;
-        }*/
 
         DialogResult = true;
     }
 
     private bool CheckString(string str)
     {
-        return str.Split(new[] { ' ', '_' }).Length == 1 && !string.IsNullOrEmpty(str);
+        return str.Split(new[] { ' ' }).Length == 1 && !string.IsNullOrEmpty(str);
     }
 
     private void SetStateError(bool visible, string text)
