@@ -15,7 +15,7 @@ public class WindowsProvider
 
     private Window? _openWindow;
 
-    private Queue<WindowType> _windowsTypes = new Queue<WindowType>();
+    private Stack<WindowType> _windowsTypes = new Stack<WindowType>();
     
     public UserSchema? CurrentUser { get; set; }
 
@@ -76,14 +76,14 @@ public class WindowsProvider
 
     public void AddStateToHistory(WindowType windowType)
     {
-        _windowsTypes.Enqueue(windowType);
+        _windowsTypes.Push(windowType);
     }
 
     public bool BackStateFromHistory(bool messagebox = false)
     {
-        if (!messagebox) return _windowsTypes.TryDequeue(out var windowType) && Switch(windowType);
+        if (!messagebox) return _windowsTypes.TryPop(out var windowType) && Switch(windowType);
         if (MessageBox.Show("Вы уверенны что хотите вернуться?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            return _windowsTypes.TryDequeue(out var windowType) && Switch(windowType);
+            return _windowsTypes.TryPop(out var windowType) && Switch(windowType);
 
         return false;
     }

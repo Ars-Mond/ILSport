@@ -1,4 +1,4 @@
-<UserControl x:Class="ILSport.Custom.TrainingBrick"
+<UserControl x:Class="ILSport.Custom.ListTrainingBrick"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,8 +6,11 @@
              xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:ILSport.Custom"
              mc:Ignorable="d"
-             Height="270" Width="270"
-             Background="Transparent">
+             Height="100"
+             MinWidth="500"
+             d:DesignWidth="1000"
+             Background="Transparent"
+             HorizontalAlignment="Stretch">
     
     <UserControl.Resources>
         <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
@@ -16,6 +19,7 @@
     <Grid>
         <Button Style="{StaticResource TrainingBrick.Button}">
             <TextBlock Style="{StaticResource TrainingBrick.Text}"
+                       TextAlignment="Left"
                        Text="{Binding Text}"/>
             
             <b:Interaction.Triggers>

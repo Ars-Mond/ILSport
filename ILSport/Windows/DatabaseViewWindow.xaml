@@ -88,6 +88,15 @@
                         </b:EventTrigger>
                     </b:Interaction.Triggers>
                 </Button>
+                <Button Style="{StaticResource BlackWindows.Button.Back}">
+                    Создать ImageBase64
+                    
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:InvokeCommandAction Command="{Binding CreateImageCommand}"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Button>
                 <Button Style="{StaticResource BlackWindows.Button.Submit}">
                     Внести изменения
                     

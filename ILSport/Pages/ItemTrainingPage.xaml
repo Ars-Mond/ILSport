@@ -3,10 +3,85 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:c="clr-namespace:ILSport.CustomElements"
+      xmlns:uc="clr-namespace:ILSport.Custom"
       xmlns:local="clr-namespace:ILSport.Pages"
       mc:Ignorable="d"
-      Title="ItemTrainingPage" Height="450" Width="800">
+      Title="ItemTrainingPage"
+      d:DesignWidth="1620" d:DesignHeight="760">
+     
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
+    </Page.Resources>
+    
     <Grid>
-        <Button>TEST</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Row="0"
+                Style="{StaticResource BlackWindows.Button.Back}"
+                HorizontalAlignment="Left" 
+                Width="130">
+            Back
+            
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="Click">
+                    <b:InvokeCommandAction Command="{Binding BackCommand}"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </Button>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Image Grid.Column="0" Width="500" Height="500" Source="../Resources/Icons/icon_dark.png"/>
+        
+        <c:GapStackPanel Grid.Column="2" x:Name="Panel">
+        </c:GapStackPanel>
+        </Grid>
     </Grid>
 </Page>
+
+<!--<StackPanel Grid.Column="2">
+            <ItemsControl ItemsSource="{Binding Training}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding}" Width="100" Height="30" Margin="5"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>-->
+        
+<!--<ListBox Grid.Column="2" ItemsSource="{Binding Training}" 
+                 BorderThickness="0"
+                 Padding="40"
+                 IsSelected="False">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    ~1~<StackPanel>
+                        <uc:ListTrainingBrick Text="{Binding Name}" Type="{Binding NameIndex}"/>
+                        <Button Content="{Binding Name}"/>
+                    </StackPanel>@1@
+                    <Button Style="{StaticResource TrainingBrick.Button}">
+                        <TextBlock Style="{StaticResource TrainingBrick.Text}"
+                                   TextAlignment="Left"
+                                   Text="{Binding Name}"/>
+            
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="Click">
+                                <b:InvokeCommandAction Command="{Binding Command}"
+                                                       CommandParameter="{Binding Type}"/>
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Button>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->

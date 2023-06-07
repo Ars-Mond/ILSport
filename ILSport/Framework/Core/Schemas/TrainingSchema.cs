@@ -9,6 +9,9 @@ public sealed class TrainingSchema
     public string NameIndex { get; set; } = null!;
     public string? Name { get; set; }
 
+    public string? Image { get; set; }
+    public string? Description { get; set; }
+    public string? TechniqueOfExecution { get; set; }
     public int TrainingGroupId { get; set; }
     public TrainingGroupSchema TrainingGroup { get; set; } = null!;
     public ICollection<UserTrainingSchema> UserTrainings { get; set; } = new ObservableCollection<UserTrainingSchema>();

@@ -15,6 +15,7 @@ public class DatabaseViewModel : BaseViewModel
 
     public ICommand ReturnCommand { get;}
     public ICommand CreateUserCommand { get; }
+    public ICommand CreateImageCommand { get; }
     public ICommand UpdateCommand { get; }
     public ICommand DeleteCommand { get; }
     public ICommand UpdatePageCommand { get; }
@@ -43,6 +44,7 @@ public class DatabaseViewModel : BaseViewModel
         ReturnCommand = new DelegateCommand(Return);
         
         CreateUserCommand = new DelegateCommand(CreateUser);
+        CreateImageCommand = new DelegateCommand(CreateImage);
         UpdateCommand = new DelegateCommand(UpdateUser);
         DeleteCommand = new DelegateCommand(DeleteUser);
         UpdatePageCommand = new DelegateCommand(UpdatePage);
@@ -87,6 +89,11 @@ public class DatabaseViewModel : BaseViewModel
             MessageBox.Show("При создании произошла неизвестная ошибка.", "Создание", MessageBoxButton.OK, MessageBoxImage.Error);
             Console.WriteLine(e);
         }
+    }
+
+    private void CreateImage(object? obj)
+    {
+        throw new NotImplementedException();
     }
 
     private void UpdateUser(object? obj)
