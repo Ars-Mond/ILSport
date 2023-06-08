@@ -1,11 +1,12 @@
 using System.Windows;
 
-namespace ILSport.Windows.MessageBoxes;
-
-public partial class ImageBase64Window : Window
+namespace ILSport.Windows.MessageBoxes
 {
-    public ImageBase64Window()
+    public partial class ImageBase64Window : Window
     {
-        InitializeComponent();
+        public ImageBase64Window()
+        {
+            InitializeComponent();
+        }
     }
 }

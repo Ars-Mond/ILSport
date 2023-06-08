@@ -4,18 +4,18 @@ using System.Linq;
 using ILSport.Framework.Core.Schemas;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace ILSport.Framework.Core;
-
-public static class CollectionExtension
+namespace ILSport.Framework.Core
 {
-    public static void SetCreatedUser(this Collections collections, UserSchema user)
+    public static class CollectionExtension
     {
-        collections.DatabaseContext.Users.Add(user);
-        collections.DatabaseContext.SaveChanges();
-    }
+        public static void SetCreatedUser(this Collections collections, UserSchema user)
+        {
+            collections.DatabaseContext.Users.Add(user);
+            collections.DatabaseContext.SaveChanges();
+        }
 
 
-    #region List
+        #region List
 
         public static List<UserSchema> GetUsers(this Collections collections)
         {
@@ -35,12 +35,11 @@ public static class CollectionExtension
         public static List<UserTrainingSchema> GetUserTraining(this Collections collections)
         {
             return collections.DatabaseContext.UserTrainings.ToList();
-    }
+        }
 
-    #endregion
-
-
-    #region ObservableCollection
+        #endregion
+        
+        #region ObservableCollection
 
         public static ObservableCollection<UserSchema> GetUsersObservableCollection(this Collections collections)
         {
@@ -62,25 +61,46 @@ public static class CollectionExtension
             return collections.DatabaseContext.UserTrainings.Local.ToObservableCollection();
         }
 
-    #endregion
+        #endregion
 
-    #region MyRegion
+        #region MyRegion
 
-    #endregion
-    
+        #endregion
 
-    public static EntityEntry<UserSchema>? FindUser(this Collections collections, string login)
-    {
-        return collections.DatabaseContext.Users.Local.FindEntry(nameof(UserSchema.Login), login);
-    }
+        #region Find
+        
+            public static UserSchema? FindUser(this Collections collections, string login)
+            {
+                return collections.DatabaseContext.Users.Local.ToList().Find(u => u.Login == login); //.FindEntry(nameof(UserSchema.Login), login);
+            }
 
-    public static EntityEntry<TrainingSchema>? FindTraining(this Collections collections, string nameIndex)
-    {
-        return collections.DatabaseContext.Trainings.Local.FindEntry(nameof(TrainingSchema.NameIndex), nameIndex);
-    }
-    
-    public static EntityEntry<TrainingGroupSchema>? FindTrainingGroup(this Collections collections, string nameIndex)
-    {
-        return collections.DatabaseContext.TrainingGroups.Local.FindEntry(nameof(TrainingSchema.NameIndex), nameIndex);
+            public static TrainingSchema? FindTraining(this Collections collections, string nameIndex)
+            {
+                return collections.DatabaseContext.Trainings.Local.ToList()
+                    .Find(t => t.NameIndex == nameIndex); //.FindEntry(nameof(TrainingSchema.NameIndex), nameIndex);
+            }
+        
+            public static TrainingGroupSchema? FindTrainingGroup(this Collections collections, string nameIndex)
+            {
+                return collections.DatabaseContext.TrainingGroups.Local.ToList()
+                    .Find(tg => tg.NameIndex == nameIndex);  //.FindEntry(nameof(TrainingSchema.NameIndex), nameIndex);
+            }
+
+            /*public static EntityEntry<UserSchema>? FindUserEntry(this Collections collections, string login)
+            {
+                return collections.DatabaseContext.Users.Local.FindEntry(nameof(UserSchema.Login), login);
+            }
+
+            public static EntityEntry<TrainingSchema>? FindTrainingEntry(this Collections collections, string nameIndex)
+            {
+                return collections.DatabaseContext.Trainings.Local.FindEntry(nameof(TrainingSchema.NameIndex), nameIndex);
+            }
+        
+            public static EntityEntry<TrainingGroupSchema>? FindTrainingGroupEntry(this Collections collections, string nameIndex)
+            {
+                return collections.DatabaseContext.TrainingGroups.Local.FindEntry(nameof(TrainingSchema.NameIndex), nameIndex);
+            }*/
+
+        #endregion
     }
 }

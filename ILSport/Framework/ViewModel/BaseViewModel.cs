@@ -2,22 +2,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace ILSport.Framework.ViewModel;
-
-public class BaseViewModel : INotifyPropertyChanged
+namespace ILSport.Framework.ViewModel
 {
-    #region Events
+    public class BaseViewModel : INotifyPropertyChanged
+    {
+        #region Events
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-    #endregion
+        #endregion
 
-    #region Protected Methods
+        #region Protected Methods
 
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-    #endregion
+        #endregion
+    }
 }

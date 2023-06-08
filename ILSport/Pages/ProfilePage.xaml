@@ -94,9 +94,9 @@
                 Записи активности
             </TextBlock>
             <c:GapStackPanel Orientation="Vertical" Gap="40">
-                <uc:TaskBar TypeColorBar="Red" Text="Расход калорий" Value="50"/>
-                <uc:TaskBar TypeColorBar="Yellow" Text="Физическая активность" Value="30"/>
-                <uc:TaskBar TypeColorBar="Blue" Text="Часы активности" Value="75"/>
+                <uc:TaskBar TypeColorBar="Red" Text="Расход калорий" Value="50" ImagePath="../Resources/Images/21.png"/>
+                <uc:TaskBar TypeColorBar="Yellow" Text="Физическая активность" Value="30" ImagePath="../Resources/Images/22.png"/>
+                <uc:TaskBar TypeColorBar="Blue" Text="Часы активности" Value="75" ImagePath="../Resources/Images/23.png"/>
             </c:GapStackPanel>
         </c:GapStackPanel>
     </Grid>

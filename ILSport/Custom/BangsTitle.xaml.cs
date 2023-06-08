@@ -1,11 +1,12 @@
 using System.Windows.Controls;
 
-namespace ILSport.Custom;
-
-public partial class BangsTitle : UserControl
+namespace ILSport.Custom
 {
-    public BangsTitle()
+    public partial class BangsTitle : UserControl
     {
-        InitializeComponent();
+        public BangsTitle()
+        {
+            InitializeComponent();
+        }
     }
 }

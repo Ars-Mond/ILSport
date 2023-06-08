@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="ILSport" Height="1080" Width="1920"
         WindowStyle="None"
-        ResizeMode="CanResizeWithGrip"
+        WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="False">
+        AllowsTransparency="True">
     
     <Window.Resources>
         <ResourceDictionary Source="../Styles/DefaultPattern.xaml"/>
@@ -76,3 +76,5 @@
         </Grid>
     </Grid>
 </Window>
+
+<!--ResizeMode="CanResizeWithGrip"-->

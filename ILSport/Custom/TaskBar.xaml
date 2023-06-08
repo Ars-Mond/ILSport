@@ -17,7 +17,7 @@
     <Grid>
         <ProgressBar Style="{StaticResource TaskBar.ProcessBar.Red}" x:Name="ProgressBar" Value="{Binding Value}"/>
         <StackPanel Orientation="Horizontal">
-            <Image Style="{StaticResource TaskBar.Image}" Source="../Resources/Icons/LogoContent.png"/>
+            <Image Style="{StaticResource TaskBar.Image}" Source="{Binding ImagePath}"/>
             <TextBlock Style="{StaticResource TaskBar.Text}" Text="{Binding Text}"/>
         </StackPanel>
     </Grid>

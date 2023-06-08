@@ -4,12 +4,13 @@ using System.Windows.Controls;
 using ILSport.Custom;
 using ILSport.Framework.Core.Schemas;
 
-namespace ILSport.Pages;
-
-public partial class TrainingPage : Page
+namespace ILSport.Pages
 {
-    public TrainingPage()
+    public partial class TrainingPage : Page
     {
-        InitializeComponent();
+        public TrainingPage()
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -4,109 +4,110 @@ using System.Windows;
 using ILSport.Framework.Core.Schemas;
 using ILSport.Windows;
 
-namespace ILSport.Framework.Core;
-
-public class WindowsProvider
+namespace ILSport.Framework.Core
 {
-    
-    private static WindowsProvider? _instance;
-
-    public static WindowsProvider Instance => _instance ??= new WindowsProvider();
-
-    private Window? _openWindow;
-
-    private Stack<WindowType> _windowsTypes = new Stack<WindowType>();
-    
-    public UserSchema? CurrentUser { get; set; }
-
-    private WindowsProvider()
-    { }
-
-    public bool Switch(WindowType windowType)
+    public class WindowsProvider
     {
-        Window? window;
-        switch (windowType)
+    
+        private static WindowsProvider? _instance;
+
+        public static WindowsProvider Instance => _instance ??= new WindowsProvider();
+
+        private Window? _openWindow;
+
+        private Stack<WindowType> _windowsTypes = new Stack<WindowType>();
+    
+        public UserSchema? CurrentUser { get; set; }
+
+        private WindowsProvider()
+        { }
+
+        public bool Switch(WindowType windowType)
         {
-            case WindowType.Main:
-                window = new MainWindow();
+            Window? window;
+            switch (windowType)
+            {
+                case WindowType.Main:
+                    window = new MainWindow();
                 
-                _openWindow?.Close();
-                _openWindow = window;
-                _openWindow.Show();
-                break;
+                    _openWindow?.Close();
+                    _openWindow = window;
+                    _openWindow.Show();
+                    break;
             
-            case WindowType.Login:
-                window = new LoginWindow();
+                case WindowType.Login:
+                    window = new LoginWindow();
                 
-                _openWindow?.Close();
-                _openWindow = window;
-                _openWindow.Show();
-                break;
+                    _openWindow?.Close();
+                    _openWindow = window;
+                    _openWindow.Show();
+                    break;
             
-            case WindowType.Register:
-                window = new RegisterWindow();
+                case WindowType.Register:
+                    window = new RegisterWindow();
                 
-                _openWindow?.Close();
-                _openWindow = window;
-                _openWindow.Show();
-                break;
+                    _openWindow?.Close();
+                    _openWindow = window;
+                    _openWindow.Show();
+                    break;
             
-            case WindowType.DatabaseView:
-                window = new DatabaseViewWindow();
+                case WindowType.DatabaseView:
+                    window = new DatabaseViewWindow();
                 
-                _openWindow?.Close();
-                _openWindow = window;
-                _openWindow.Show();
-                break;
+                    _openWindow?.Close();
+                    _openWindow = window;
+                    _openWindow.Show();
+                    break;
             
-            case WindowType.TestData:
-                window = new TestDataWindow();
+                case WindowType.TestData:
+                    window = new TestDataWindow();
                 
-                _openWindow?.Close();
-                _openWindow = window;
-                _openWindow.Show();
-                break;
+                    _openWindow?.Close();
+                    _openWindow = window;
+                    _openWindow.Show();
+                    break;
             
-            default:
-                throw new ArgumentOutOfRangeException(nameof(windowType), windowType, null);
-        }
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(windowType), windowType, null);
+            }
         
-        return true;
-    }
-
-    public void AddStateToHistory(WindowType windowType)
-    {
-        _windowsTypes.Push(windowType);
-    }
-
-    public bool BackStateFromHistory(bool messagebox = false)
-    {
-        if (!messagebox) return _windowsTypes.TryPop(out var windowType) && Switch(windowType);
-        if (MessageBox.Show("Вы уверенны что хотите вернуться?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            return _windowsTypes.TryPop(out var windowType) && Switch(windowType);
-
-        return false;
-    }
-
-    public void ExitApplication(bool messagebox = false)
-    {
-        if (!messagebox)
-        {
-            Application.Current.Shutdown();
-            return;
+            return true;
         }
-        if (MessageBox.Show("Вы уверенны что хотите выйти?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            Application.Current.Shutdown();
-    }
-}
 
-public enum WindowType
-{
-    Main,
-    Login,
-    Register,
-    DatabaseView,
-    TestData
+        public void AddStateToHistory(WindowType windowType)
+        {
+            _windowsTypes.Push(windowType);
+        }
+
+        public bool BackStateFromHistory(bool messagebox = false)
+        {
+            if (!messagebox) return _windowsTypes.TryPop(out var windowType) && Switch(windowType);
+            if (MessageBox.Show("Вы уверенны что хотите вернуться?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                return _windowsTypes.TryPop(out var windowType) && Switch(windowType);
+
+            return false;
+        }
+
+        public void ExitApplication(bool messagebox = false)
+        {
+            if (!messagebox)
+            {
+                Application.Current.Shutdown();
+                return;
+            }
+            if (MessageBox.Show("Вы уверенны что хотите выйти?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                Application.Current.Shutdown();
+        }
+    }
+
+    public enum WindowType
+    {
+        Main,
+        Login,
+        Register,
+        DatabaseView,
+        TestData
+    }
 }
 
 

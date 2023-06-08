@@ -7,13 +7,14 @@ using ILSport.Framework.Core;
 using ILSport.Framework.Core.Schemas;
 using ILSport.Framework.ViewModel;
 
-namespace ILSport.Windows;
-
-public partial class LoginWindow : Window
+namespace ILSport.Windows
 {
-    public LoginWindow()
+    public partial class LoginWindow : Window
     {
-        InitializeComponent();
-        DataContext = new LoginModel(ErrorBox, LoginInput, PasswordInput);
+        public LoginWindow()
+        {
+            InitializeComponent();
+            DataContext = new LoginModel(ErrorBox, LoginInput, PasswordInput);
+        }
     }
 }

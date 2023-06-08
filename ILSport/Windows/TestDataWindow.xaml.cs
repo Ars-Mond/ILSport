@@ -5,23 +5,24 @@ using System.Windows;
 using ILSport.Framework.Core;
 using ILSport.Framework.Core.Schemas;
 
-namespace ILSport.Windows;
-
-public partial class TestDataWindow : Window
+namespace ILSport.Windows
 {
-    public List<UserSchema> Users { get; set; }
-    public List<TrainingSchema> Training { get; set; }
-    public List<TrainingGroupSchema> TrainingGroup { get; set; }
-    public List<UserTrainingSchema> UserTrainings { get; set; }
-
-    public TestDataWindow()
+    public partial class TestDataWindow : Window
     {
-        var dd = Collections.Instance.DatabaseContext;
-        Users = dd.Users.ToList();
-        Training = dd.Trainings.ToList();
-        TrainingGroup = dd.TrainingGroups.ToList();
-        UserTrainings = dd.UserTrainings.ToList();
-        InitializeComponent();
-        DataContext = this;
+        public List<UserSchema> Users { get; set; }
+        public List<TrainingSchema> Training { get; set; }
+        public List<TrainingGroupSchema> TrainingGroup { get; set; }
+        public List<UserTrainingSchema> UserTrainings { get; set; }
+
+        public TestDataWindow()
+        {
+            var dd = Collections.Instance.DatabaseContext;
+            Users = dd.Users.ToList();
+            Training = dd.Trainings.ToList();
+            TrainingGroup = dd.TrainingGroups.ToList();
+            UserTrainings = dd.UserTrainings.ToList();
+            InitializeComponent();
+            DataContext = this;
+        }
     }
 }

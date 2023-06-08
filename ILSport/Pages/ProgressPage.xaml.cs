@@ -1,11 +1,12 @@
 using System.Windows.Controls;
 
-namespace ILSport.Pages;
-
-public partial class ProgressPage : Page
+namespace ILSport.Pages
 {
-    public ProgressPage()
+    public partial class ProgressPage : Page
     {
-        InitializeComponent();
+        public ProgressPage()
+        {
+            InitializeComponent();
+        }
     }
 }

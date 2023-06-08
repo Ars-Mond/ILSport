@@ -1,27 +1,28 @@
 using System;
 using System.Windows.Input;
 
-namespace ILSport.Framework;
-
-public class DelegateCommand : ICommand
+namespace ILSport.Framework
 {
-    private readonly Action<object?> _open;
-
-    public DelegateCommand(Action<object?> open)
+    public class DelegateCommand : ICommand
     {
-        _open = open;
-    }
+        private readonly Action<object?> _open;
+
+        public DelegateCommand(Action<object?> open)
+        {
+            _open = open;
+        }
         
-    public bool CanExecute(object? parameter)
-    {
-        return true;
-    }
+        public bool CanExecute(object? parameter)
+        {
+            return true;
+        }
 
-    public void Execute(object? parameter)
-    {
-        //if (parameter == null) throw new ArgumentNullException(nameof(parameter));
-        _open.Invoke(parameter);
-    }
+        public void Execute(object? parameter)
+        {
+            //if (parameter == null) throw new ArgumentNullException(nameof(parameter));
+            _open.Invoke(parameter);
+        }
 
-    public event EventHandler? CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;
+    }
 }

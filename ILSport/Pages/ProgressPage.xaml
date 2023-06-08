@@ -15,16 +15,18 @@
     
     <Grid>
         <c:GapWrapPanel Gap="80" HorizontalAlignment="Stretch">
-            <uc:RoundBrick Value="10" MaxValue="20"/>
-            <uc:RoundBrick Value="16" MaxValue="54"/>
-            <uc:RoundBrick Value="200" MaxValue="100"/>
-            <uc:RoundBrick Value="23" MaxValue="53"/>
-            <uc:RoundBrick Value="12" MaxValue="22"/>
-            <uc:RoundBrick Value="20" MaxValue="21"/>
-            <uc:RoundBrick Value="1" MaxValue="3"/>
-            <uc:RoundBrick Value="4" MaxValue="5"/>
-            <uc:RoundBrick Value="1" MaxValue="2"/>
-            <uc:RoundBrick Value="4" MaxValue="9"/>
+            <uc:RoundBrick Value="10" MaxValue="20" ImagePath="../Resources/Images/1.png"/>
+            <uc:RoundBrick Value="16" MaxValue="54" ImagePath="../Resources/Images/2.png"/>
+            <uc:RoundBrick Value="200" MaxValue="100" ImagePath="../Resources/Images/3.png"/>
+            <uc:RoundBrick Value="23" MaxValue="53" ImagePath="../Resources/Images/4.png"/>
+            <uc:RoundBrick Value="12" MaxValue="22" ImagePath="../Resources/Images/5.png"/>
+            <uc:RoundBrick Value="0" MaxValue="0"/>
+            <uc:RoundBrick Value="0" MaxValue="0"/>
+            <uc:RoundBrick Value="0" MaxValue="0"/>
+            <uc:RoundBrick Value="0" MaxValue="0"/>
+            <uc:RoundBrick Value="0" MaxValue="0"/>
+            <uc:RoundBrick Value="0" MaxValue="0"/>
+            <uc:RoundBrick Value="0" MaxValue="0"/>
         </c:GapWrapPanel>
     </Grid>
 </Page>

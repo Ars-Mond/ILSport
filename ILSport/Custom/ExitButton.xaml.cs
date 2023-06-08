@@ -4,22 +4,23 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Microsoft.Xaml.Behaviors.Core;
 
-namespace ILSport.Custom;
-
-public partial class ExitButton : UserControl, INotifyPropertyChanged
+namespace ILSport.Custom
 {
-    public ICommand CloseAppCommand { get; set; }
-
-    public void CloseApp()
+    public partial class ExitButton : UserControl, INotifyPropertyChanged
     {
-        Application.Current.Shutdown();
-    }
+        public ICommand CloseAppCommand { get; set; }
 
-    public ExitButton()
-    {
-        InitializeComponent();
-        DataContext = this;
+        public void CloseApp()
+        {
+            Application.Current.Shutdown();
+        }
 
-        CloseAppCommand = new ActionCommand(CloseApp);
+        public ExitButton()
+        {
+            InitializeComponent();
+            DataContext = this;
+
+            CloseAppCommand = new ActionCommand(CloseApp);
+        }
     }
 }

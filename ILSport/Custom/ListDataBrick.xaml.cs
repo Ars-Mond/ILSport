@@ -1,20 +1,21 @@
 using System.Windows.Controls;
 
-namespace ILSport.Custom;
-
-public partial class ListDataBrick : UserControl
+namespace ILSport.Custom
 {
-    public string Type { get; set; }
-    public string Value { get; set; }
-    public string Date { get; set; }
-    
-    public ListDataBrick()
+    public partial class ListDataBrick : UserControl
     {
-        InitializeComponent();
-        DataContext = this;
+        public string Type { get; set; }
+        public string Value { get; set; }
+        public string Date { get; set; }
+    
+        public ListDataBrick()
+        {
+            InitializeComponent();
+            DataContext = this;
         
-        if (string.IsNullOrEmpty(Type)) Type = "Type";
-        if (string.IsNullOrEmpty(Value)) Value = "228,48";
-        if (string.IsNullOrEmpty(Date)) Date = "32.12.2077";
+            if (string.IsNullOrEmpty(Type)) Type = "Type";
+            if (string.IsNullOrEmpty(Value)) Value = "228,48";
+            if (string.IsNullOrEmpty(Date)) Date = "32.12.2077";
+        }
     }
 }

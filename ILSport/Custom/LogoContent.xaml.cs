@@ -1,11 +1,12 @@
 using System.Windows.Controls;
 
-namespace ILSport.Custom;
-
-public partial class LogoContent : UserControl
+namespace ILSport.Custom
 {
-    public LogoContent()
+    public partial class LogoContent : UserControl
     {
-        InitializeComponent();
+        public LogoContent()
+        {
+            InitializeComponent();
+        }
     }
 }

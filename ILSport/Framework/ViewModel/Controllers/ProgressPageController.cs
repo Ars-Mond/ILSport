@@ -3,22 +3,23 @@ using System.Windows.Controls;
 using ILSport.Custom;
 using ILSport.Pages;
 
-namespace ILSport.Framework.ViewModel.Controllers;
-
-public class ProgressPageController : IPageController
+namespace ILSport.Framework.ViewModel.Controllers
 {
-    private readonly ProgressPage _progressPage;
-    
-    
-    public event Action<Page>? OnSetPage;
-    public MenuItemType MenuItemType { get; } = MenuItemType.Progress;
-    public Page GetPage()
+    public class ProgressPageController : IPageController
     {
-        return _progressPage;
-    }
+        private readonly ProgressPage _progressPage;
+    
+    
+        public event Action<Page>? OnSetPage;
+        public MenuItemType MenuItemType { get; } = MenuItemType.Progress;
+        public Page GetPage()
+        {
+            return _progressPage;
+        }
 
-    public ProgressPageController()
-    {
-        _progressPage = new ProgressPage();
+        public ProgressPageController()
+        {
+            _progressPage = new ProgressPage();
+        }
     }
 }

@@ -10,74 +10,75 @@ using ILSport.Framework.ViewModel.Controllers;
 using ILSport.Pages;
 using MenuItem = ILSport.Custom.MenuItem;
 
-namespace ILSport.Framework.ViewModel;
-
-public class MainContentModel : BaseViewModel
+namespace ILSport.Framework.ViewModel
 {
-    private Frame _frame;
-    private ICommand PageCommand { get; }
-    private List<MenuItem> _menuItems = new List<MenuItem>();
-    private List<IPageController> _pageControllers = new List<IPageController>();
-
-    public ICommand BackCommand { get; }
-
-    public MainContentModel(UserSchema user, Frame content)
+    public class MainContentModel : BaseViewModel
     {
-        _frame = content;
-        
-        var tg = Collections.Instance.GetTrainingGroupObservableCollection();
-        var t = Collections.Instance.GetTrainingObservableCollection();
+        private Frame _frame;
+        private ICommand PageCommand { get; }
+        private List<MenuItem> _menuItems = new List<MenuItem>();
+        private List<IPageController> _pageControllers = new List<IPageController>();
 
-        AddPageController(new StartupPageController());
-        AddPageController(new TrainingPageController(tg, t));
-        AddPageController(new ProgressPageController());
-        AddPageController(new ProfilePageController(user));
+        public ICommand BackCommand { get; }
 
-        BackCommand = new DelegateCommand(Back);
-        PageCommand = new DelegateCommand(o => SwitchPage((MenuItem)o!));
-        
-        Init();
-    }
-
-    public void Init()
-    {
-        var f = _menuItems.Find(i => i.ParameterType == MenuItemType.Home);
-        if (f == null) return;
-        
-        SwitchPage(f);
-    }
-
-    public void AddMenuItem(MenuItem item)
-    {
-        _menuItems.Add(item);
-        item.Command = PageCommand;
-    }
-
-    private void AddPageController(IPageController pageController)
-    {
-        _pageControllers.Add(pageController);
-        pageController.OnSetPage += OpenPage;
-    }
-
-    private void SwitchPage(MenuItem obj)
-    {
-        var f = _pageControllers.Find(i => i.MenuItemType == obj.ParameterType);
-
-        if (f != null)
+        public MainContentModel(UserSchema user, Frame content)
         {
-            OpenPage(f.GetPage());
-            foreach (var item in _menuItems) item.IsActive = false;
-            obj.IsActive = true;
-        };
-    }
+            _frame = content;
+        
+            var tg = Collections.Instance.GetTrainingGroupObservableCollection();
+            var t = Collections.Instance.GetTrainingObservableCollection();
 
-    private void OpenPage(Page page)
-    {
-        _frame.Content = page;
-    }
+            AddPageController(new StartupPageController());
+            AddPageController(new TrainingPageController(tg, t));
+            AddPageController(new ProgressPageController());
+            AddPageController(new ProfilePageController(user));
 
-    private void Back(object? obj)
-    {
-        WindowsProvider.Instance.BackStateFromHistory(true);
+            BackCommand = new DelegateCommand(Back);
+            PageCommand = new DelegateCommand(o => SwitchPage((MenuItem)o!));
+        
+            Init();
+        }
+
+        public void Init()
+        {
+            var f = _menuItems.Find(i => i.ParameterType == MenuItemType.Home);
+            if (f == null) return;
+        
+            SwitchPage(f);
+        }
+
+        public void AddMenuItem(MenuItem item)
+        {
+            _menuItems.Add(item);
+            item.Command = PageCommand;
+        }
+
+        private void AddPageController(IPageController pageController)
+        {
+            _pageControllers.Add(pageController);
+            pageController.OnSetPage += OpenPage;
+        }
+
+        private void SwitchPage(MenuItem obj)
+        {
+            var f = _pageControllers.Find(i => i.MenuItemType == obj.ParameterType);
+
+            if (f != null)
+            {
+                OpenPage(f.GetPage());
+                foreach (var item in _menuItems) item.IsActive = false;
+                obj.IsActive = true;
+            };
+        }
+
+        private void OpenPage(Page page)
+        {
+            _frame.Content = page;
+        }
+
+        private void Back(object? obj)
+        {
+            WindowsProvider.Instance.BackStateFromHistory(true);
+        }
     }
 }

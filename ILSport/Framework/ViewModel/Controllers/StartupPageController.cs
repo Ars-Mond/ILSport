@@ -3,22 +3,23 @@ using System.Windows.Controls;
 using ILSport.Custom;
 using ILSport.Pages;
 
-namespace ILSport.Framework.ViewModel.Controllers;
-
-public class StartupPageController : IPageController
+namespace ILSport.Framework.ViewModel.Controllers
 {
-    private readonly StartupPage _startupPage;
-    
-    
-    public event Action<Page>? OnSetPage;
-    public MenuItemType MenuItemType { get; } = MenuItemType.Home;
-    public Page GetPage()
+    public class StartupPageController : IPageController
     {
-        return _startupPage;
-    }
+        private readonly StartupPage _startupPage;
+    
+    
+        public event Action<Page>? OnSetPage;
+        public MenuItemType MenuItemType { get; } = MenuItemType.Home;
+        public Page GetPage()
+        {
+            return _startupPage;
+        }
 
-    public StartupPageController()
-    {
-        _startupPage = new StartupPage();
+        public StartupPageController()
+        {
+            _startupPage = new StartupPage();
+        }
     }
 }

@@ -1,11 +1,12 @@
 using System.Windows.Controls;
 
-namespace ILSport.Pages;
-
-public partial class ProfilePage : Page
+namespace ILSport.Pages
 {
-    public ProfilePage()
+    public partial class ProfilePage : Page
     {
-        InitializeComponent();
+        public ProfilePage()
+        {
+            InitializeComponent();
+        }
     }
 }

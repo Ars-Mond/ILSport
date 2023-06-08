@@ -1,11 +1,12 @@
 using System.Windows.Controls;
 
-namespace ILSport.Pages;
-
-public partial class StartupPage : Page
+namespace ILSport.Pages
 {
-    public StartupPage()
+    public partial class StartupPage : Page
     {
-        InitializeComponent();
+        public StartupPage()
+        {
+            InitializeComponent();
+        }
     }
 }
