@@ -84,7 +84,6 @@ namespace ILSport.Windows.MessageBoxes
                 var base64 = Convert.ToBase64String(File.ReadAllBytes(path));
                 Debug.WriteLine(base64);
                 Photo = base64;
-                Debug.WriteLine(Photo);
                 PhotoPath = path;
             }
             catch (Exception e)

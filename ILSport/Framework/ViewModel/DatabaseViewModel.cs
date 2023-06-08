@@ -45,7 +45,7 @@ namespace ILSport.Framework.ViewModel
         
             CreateUserCommand = new DelegateCommand(CreateUser);
             CreateImageCommand = new DelegateCommand(CreateImage);
-            UpdateCommand = new DelegateCommand(UpdateUser);
+            UpdateCommand = new DelegateCommand(UpdateData);
             DeleteCommand = new DelegateCommand(DeleteUser);
             UpdatePageCommand = new DelegateCommand(UpdatePage);
         }
@@ -93,15 +93,15 @@ namespace ILSport.Framework.ViewModel
 
         private void CreateImage(object? obj)
         {
-            throw new NotImplementedException();
+            var base64Window = new ImageBase64Window().ShowDialog();
+            if (base64Window == true)
+            { }
         }
 
-        private void UpdateUser(object? obj)
+        private void UpdateData(object? obj)
         {
             try
             {
-                if (obj == null) return;
-        
                 var f = MessageBox.Show("Уверенны что хотите обновить?", "Обновление", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (f == MessageBoxResult.Yes)
                 {
