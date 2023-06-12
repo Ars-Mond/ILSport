@@ -44,7 +44,7 @@
         
         <Image Grid.Column="0" Width="500" Height="500" Source="../Resources/Icons/icon_dark.png"/>
         
-        <c:GapStackPanel Grid.Column="2" x:Name="Panel">
+        <c:GapStackPanel Grid.Column="2" x:Name="Panel" Gap="20">
         </c:GapStackPanel>
         </Grid>
     </Grid>
